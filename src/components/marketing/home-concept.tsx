@@ -86,6 +86,39 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
 
     <section className="px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="magnets-title"><div className="mx-auto max-w-[1240px]"><div className="mb-7 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed fridge magnets</p><h2 id="magnets-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Real restaurants. Lasting connections.</h2></div><QuoteLink outline>Explore more designs</QuoteLink></div><ShowcaseStrip config={magnets} kind="magnets" dbBacked={dbBacked} title="Magnet designs" description="Selected work · more designs coming soon" /></div></section>
 
+    <section className="bg-[#132d42] px-5 py-16 text-white sm:px-8 sm:py-20" aria-labelledby="qr-service-title">
+      <div className="mx-auto max-w-[1240px]">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_.9fr] lg:gap-20">
+          <div>
+            <p className="text-xs font-extrabold tracking-[.16em] text-[#ffb77e] uppercase">QR codes &amp; online menus</p>
+            <h2 id="qr-service-title" className="mt-3 max-w-[700px] text-[clamp(2.3rem,4.7vw,4.4rem)] leading-[1.06] font-extrabold tracking-[-.06em]">One scan. Everything your guests need.</h2>
+            <p className="mt-5 max-w-[640px] text-base leading-7 text-[#d2e0e9]">We create a branded online menu for your restaurant and connect it to a QR experience your guests can use right away. The design, setup and updates are managed by our team.</p>
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link href={routes.marketing.howItWorks()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#f06428] px-6 text-sm font-bold text-white transition hover:bg-[#d94d17]">How it works <Icon name="ArrowRight" className="size-4" aria-hidden /></Link>
+              <Link href={routes.marketing.features()} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-white/40 px-6 text-sm font-bold text-white transition hover:bg-white/10">Explore digital features</Link>
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-[450px] rounded-[30px] bg-[#24465c] p-5 shadow-[0_25px_60px_rgba(0,0,0,.18)] sm:p-8" aria-label="Illustrative online menu preview">
+            <div className="absolute -top-7 -right-4 flex size-20 rotate-12 items-center justify-center rounded-2xl bg-white text-[#172d3f] shadow-xl sm:size-24"><Icon name="QrCode" className="size-12 sm:size-14" strokeWidth={1.7} aria-hidden /></div>
+            <div className="overflow-hidden rounded-2xl bg-[#fffaf5] text-[#172d3f]">
+              <div className="flex items-center justify-between bg-[#f8ddbd] px-5 py-4"><span className="text-sm font-extrabold">Your restaurant</span><span className="rounded-full bg-white/80 px-3 py-1 text-[10px] font-bold uppercase">Online menu</span></div>
+              <div className="grid grid-cols-3 gap-2 p-4 text-center text-[11px] font-bold sm:gap-3 sm:p-5"><span className="rounded-xl bg-[#fbe7d4] p-4">Menu</span><span className="rounded-xl bg-[#e5efe7] p-4">Offers</span><span className="rounded-xl bg-[#e4ecf5] p-4">Contact</span></div>
+              <div className="mx-5 mb-5 rounded-lg border border-[#e7e0d9] px-4 py-3 text-xs text-[#607184]">Your brand, menu and useful links in one place.</div>
+            </div>
+            <p className="mt-4 text-center text-[10px] font-bold tracking-[.12em] text-[#d2e0e9] uppercase">Illustrative preview</p>
+          </div>
+        </div>
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+          {[
+            { n: "1", icon: "Phone", title: "Call to Order", body: "A direct way to reach your restaurant." },
+            { n: "2", icon: "UtensilsCrossed", title: "Pick Your Meal", body: "Browse your branded online menu." },
+            { n: "3", icon: "ShoppingBag", title: "Online Order with Pay", body: "Connect to your existing ordering platform." },
+            { n: "4", icon: "MapPin", title: "Visit Us", body: "Find your location, directions and opening hours." },
+          ].map(action => <div key={action.n} className="rounded-2xl border border-white/15 bg-white/[.08] p-5"><div className="flex items-center justify-between"><span className="text-2xl font-extrabold text-[#ffb77e]">{action.n}</span><Icon name={action.icon} className="size-6 text-[#ffb77e]" aria-hidden /></div><h3 className="mt-4 text-base font-extrabold">{action.title}</h3><p className="mt-1 text-sm leading-6 text-[#d2e0e9]">{action.body}</p></div>)}
+        </div>
+      </div>
+    </section>
+
     <section className="bg-[#fff8f2] px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto max-w-[1240px]"><h2 className="mb-8 text-center text-[clamp(1.8rem,3vw,2.5rem)] leading-tight font-extrabold tracking-[-.05em]">From your idea to their hands. It’s easy.</h2><div className="grid gap-4 md:grid-cols-3">{[
       { n: "1", icon: "MessageCircle", title: "Share your idea", body: "Tell us about your restaurant and the product you have in mind." },
       { n: "2", icon: "Pencil", title: "We prepare your design", body: "We shape the artwork around your brand and review it with you." },
