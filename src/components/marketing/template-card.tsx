@@ -1,0 +1,88 @@
+import Link from "next/link";
+import Image from "next/image";
+import { Icon } from "@/components/shared/icon";
+import { cn } from "@/lib/utils";
+
+interface TemplateCardProps {
+  name: string;
+  description: string;
+  bestFor: string;
+  image: string | null;
+  /** When set, the whole card links to the template's detail page. */
+  href?: string;
+  className?: string;
+}
+
+/**
+ * Managed visual-direction card for the templates gallery. Directions are
+ * starting points configured by the team — not self-service themes. When `href`
+ * is provided the card becomes a link to the template's detail page.
+ */
+export function TemplateCard({
+  name,
+  description,
+  bestFor,
+  image,
+  href,
+  className,
+}: TemplateCardProps) {
+  const inner = (
+    <>
+      <div className="bg-surface relative aspect-[16/10] w-full overflow-hidden">
+        {image ? (
+          <Image
+            src={image}
+            alt={`${name} visual direction`}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+            sizes="(min-width: 1024px) 33vw, 100vw"
+          />
+        ) : (
+          <div className="from-warm to-surface flex h-full w-full items-center justify-center bg-gradient-to-br">
+            <Icon name="Palette" className="text-primary/40 size-8" aria-hidden />
+          </div>
+        )}
+      </div>
+      <div className="flex flex-1 flex-col gap-3 p-6">
+        <h3 className="font-heading text-h3 text-text-primary font-bold">{name}</h3>
+        <p className="text-small text-text-secondary">{description}</p>
+        <p className="text-small text-primary-dark mt-auto inline-flex items-center gap-2 font-semibold">
+          <Icon name="Sparkles" className="size-4" aria-hidden />
+          Best for: {bestFor}
+        </p>
+        {href ? (
+          <span className="text-small text-primary-dark inline-flex items-center gap-1 font-bold">
+            View direction
+            <Icon
+              name="ArrowRight"
+              className="size-4 transition-transform group-hover:translate-x-0.5"
+              aria-hidden
+            />
+          </span>
+        ) : null}
+      </div>
+    </>
+  );
+
+  const base = cn(
+    "flex h-full flex-col overflow-hidden rounded-[16px] border border-border bg-canvas shadow-card transition-all duration-300",
+    className,
+  );
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        className={cn(
+          base,
+          "group hover:border-primary/20 hover:shadow-lift focus-visible:outline-primary hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2",
+        )}
+        aria-label={`${name} — view direction`}
+      >
+        {inner}
+      </Link>
+    );
+  }
+
+  return <article className={cn(base, "hover:shadow-lift hover:-translate-y-1")}>{inner}</article>;
+}

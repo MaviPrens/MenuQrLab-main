@@ -1,0 +1,129 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+import { buildFixedActions } from "@/lib/restaurant-actions/buildRestaurantActions";
+import type { RestaurantPublicActionData } from "@/lib/restaurant-actions/restaurantActionTypes";
+import { trackRestaurantAction } from "@/lib/restaurant-actions/restaurantActionTracking";
+import { useTranslations } from "@/lib/i18n/use-translations";
+import { useLocale } from "@/lib/i18n/locale-provider";
+import { RestaurantActionItem } from "./RestaurantActionItem";
+
+const LABEL_KEY = {
+  CALL_ORDER: "rb.callOrder",
+  OPEN_MENU: "rb.pickMeal",
+  EXTERNAL_ORDER: "rb.onlineOrder",
+  ADD_CONTACT: "rb.addContact",
+} as const;
+
+/** Fixed bottom action bar: Call Order · Pick Your Meal · Online Order · Add Contact. */
+export function RestaurantFixedActionBar({ actions }: { actions: RestaurantPublicActionData }) {
+  const t = useTranslations();
+  const { locale } = useLocale();
+  const pathname = usePathname();
+  const fixed = buildFixedActions(actions);
+  const menuActive = pathname.startsWith(actions.menuUrl);
+
+  const track = (
+    actionType: string,
+    event: Parameters<typeof trackRestaurantAction>[0],
+    destinationType?: string,
+  ) =>
+    trackRestaurantAction(event, {
+      restaurantId: actions.restaurantId,
+      restaurantSlug: actions.restaurantSlug,
+      actionType,
+      placement: "fixed_bottom_bar",
+      locale,
+      destinationType,
+    });
+
+  return (
+    <nav
+      aria-label="Restaurant actions"
+      className="border-border bg-canvas/95 fixed inset-x-0 bottom-0 z-40 border-t shadow-[0_-2px_12px_rgba(16,24,40,0.06)] backdrop-blur"
+      style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+    >
+      <ul className="max-w-shell mx-auto flex items-stretch justify-around">
+        {fixed.map((action) => {
+          const label = action.label ?? t(LABEL_KEY[action.type]);
+          switch (action.type) {
+            case "CALL_ORDER":
+              return (
+                <RestaurantActionItem
+                  key={action.type}
+                  iconSrc={action.iconSrc}
+                  iconOverride={action.iconOverride}
+                  label={label}
+                  mode={action.available ? "tel" : "disabled"}
+                  href={action.href}
+                  unavailableLabel={t("rb.unavailable")}
+                  onActivate={() => track("call-order", "restaurant_call_action_clicked", "phone")}
+                />
+              );
+            case "OPEN_MENU":
+              return (
+                <RestaurantActionItem
+                  key={action.type}
+                  iconSrc={action.iconSrc}
+                  iconOverride={action.iconOverride}
+                  label={label}
+                  mode={action.external ? "external" : "internal"}
+                  href={action.href}
+                  active={action.external ? false : menuActive}
+                  srHint={action.external ? t("rb.opensExternal") : undefined}
+                  onActivate={() =>
+                    track(
+                      "pick-your-meal",
+                      "restaurant_menu_action_clicked",
+                      action.external ? "external" : "internal",
+                    )
+                  }
+                />
+              );
+            case "EXTERNAL_ORDER":
+              return (
+                <RestaurantActionItem
+                  key={action.type}
+                  iconSrc={action.iconSrc}
+                  iconOverride={action.iconOverride}
+                  label={label}
+                  mode={action.available ? "external" : "disabled"}
+                  href={action.href}
+                  srHint={t("rb.opensExternal")}
+                  unavailableLabel={t("rb.unavailable")}
+                  onActivate={() =>
+                    track("online-order", "restaurant_external_ordering_opened", "external")
+                  }
+                />
+              );
+            case "ADD_CONTACT":
+              return (
+                <RestaurantActionItem
+                  key={action.type}
+                  iconSrc={action.iconSrc}
+                  iconOverride={action.iconOverride}
+                  label={label}
+                  mode={action.available ? action.mode : "disabled"}
+                  href={action.href}
+                  srHint={action.mode === "external" ? t("rb.opensExternal") : undefined}
+                  downloadName={`${actions.restaurantSlug}-contact.vcf`}
+                  unavailableLabel={t("rb.unavailable")}
+                  onActivate={() =>
+                    track(
+                      "add-contact",
+                      action.mode === "download"
+                        ? "restaurant_vcard_downloaded"
+                        : "restaurant_contact_action_clicked",
+                      action.mode,
+                    )
+                  }
+                />
+              );
+            default:
+              return null;
+          }
+        })}
+      </ul>
+    </nav>
+  );
+}

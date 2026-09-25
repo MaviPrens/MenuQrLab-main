@@ -1,0 +1,270 @@
+@import "tailwindcss";
+
+/*
+  MenuQrLab design tokens.
+  Canonical brand palette comes from the master spec (section 9) and the
+  Modern Fast Food design system. Token names mirror the Stitch design exports
+  (bg-primary, text-text-primary, bg-surface-warm, font-display, text-h1, ...)
+  so the supplied designs port over without renaming every class.
+*/
+
+@theme {
+  /* ---- Brand / public palette ---- */
+  --color-primary: #f04424;
+  --color-primary-dark: #c9341a;
+  --color-canvas: #ffffff;
+  --color-surface: #f8fafc;
+  --color-surface-muted: #f1f5f9;
+  --color-surface-warm: #fff1eb;
+  --color-surface-bright: #ffffff;
+  --color-surface-container: #f1f5f9;
+  --color-surface-container-high: #e6e8ea;
+  --color-on-surface: #111827;
+
+  --color-navy: #111827;
+  --color-navy-deep: #0b1220;
+
+  --color-text-primary: #111827;
+  --color-text-secondary: #667085;
+  /* Darkened from the original #98a2b3 (2.6:1) to meet WCAG AA 4.5:1 on
+     white/surface — tertiary text (timestamps, meta labels) must stay
+     legible, not just decorative. */
+  --color-text-tertiary: #6b7686;
+
+  --color-border: #e5e7eb;
+  --color-input-border: #d0d5dd;
+
+  --color-accent: #ffc533;
+
+  /* Marketing CTA orange — high-emphasis buttons on the public site refresh. */
+  --color-cta: #f4611d;
+  --color-cta-dark: #d84e10;
+
+  /* ---- Semantic status ---- */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+  --color-info: #2563eb;
+
+  /* surface-warm-ish outline used in designs */
+  --color-outline-variant: #f3d3c9;
+
+  /* ---- Typography ---- */
+  --font-display: var(--font-manrope, "Manrope"), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-manrope, "Manrope"), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-inter, "Inter"), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter, "Inter"), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: 38px;
+  --text-display--line-height: 42px;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 800;
+
+  --text-h1: 30px;
+  --text-h1--line-height: 35px;
+  --text-h1--letter-spacing: -0.01em;
+  --text-h1--font-weight: 800;
+
+  --text-h2: 24px;
+  --text-h2--line-height: 30px;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h2--font-weight: 700;
+
+  --text-h3: 19px;
+  --text-h3--line-height: 25px;
+  --text-h3--font-weight: 700;
+
+  --text-body: 16px;
+  --text-body--line-height: 24px;
+
+  --text-small: 14px;
+  --text-small--line-height: 20px;
+
+  --text-button: 15px;
+  --text-button--line-height: 20px;
+  --text-button--font-weight: 700;
+
+  /*
+    NOTE: do not add named spacing keys (--spacing-sm/md/lg/xl/...). In Tailwind
+    v4 they collide with sizing utilities, making max-w-md/max-w-xl/w-lg resolve
+    to a few pixels. Use the numeric spacing scale (p-4, gap-6, ...) instead.
+  */
+
+  /* ---- Container widths (max-w-page / max-w-shell) ---- */
+  --container-shell: 640px;
+  --container-page: 1280px;
+
+  /* ---- Radii (semantic) ---- */
+  --radius-control: 12px;
+  --radius-card: 16px;
+  --radius-panel: 20px;
+
+  /* ---- Elevation ---- */
+  --shadow-card: 0 1px 2px 0 rgba(16, 24, 40, 0.05);
+  --shadow-lift: 0 20px 40px -12px rgba(16, 24, 40, 0.16), 0 8px 16px -8px rgba(16, 24, 40, 0.1);
+  /* Brand-tinted glow for primary CTAs and highlighted cards (not generic grey). */
+  --shadow-glow: 0 12px 28px -8px rgba(240, 68, 36, 0.35), 0 4px 10px -4px rgba(240, 68, 36, 0.25);
+  --shadow-glow-lift:
+    0 24px 48px -12px rgba(240, 68, 36, 0.4), 0 8px 16px -6px rgba(240, 68, 36, 0.28);
+  --shadow-glow-cta:
+    0 12px 28px -8px rgba(244, 97, 29, 0.4), 0 4px 10px -4px rgba(244, 97, 29, 0.25);
+
+  /* ---- Brand gradients ---- */
+  --gradient-brand: linear-gradient(
+    135deg,
+    #f0562f 0%,
+    var(--color-primary) 45%,
+    var(--color-primary-dark) 100%
+  );
+  --gradient-warm:
+    radial-gradient(120% 120% at 100% 0%, rgba(255, 197, 51, 0.16) 0%, rgba(240, 68, 36, 0) 60%),
+    radial-gradient(100% 140% at 0% 100%, rgba(240, 68, 36, 0.1) 0%, rgba(240, 68, 36, 0) 55%);
+
+  /* ---- MQL flat redesign tokens (Home/How-it-Works/Features/Packages/FAQ + header/footer) ----
+     Additive only — never repurpose --color-primary/--color-navy/etc above, those still drive
+     admin, the restaurant experience, and the marketing pages this redesign does not cover
+     (About, Contact, Templates, Restaurant Examples, legal pages). See docs/DESIGN_SYSTEM.md. */
+  --color-mql-ink: #141414;
+  --color-mql-body: #4a4a4a;
+  --color-mql-secondary: #555555;
+  --color-mql-muted: #6b6b6b;
+  --color-mql-surface-alt: #f5f5f4;
+  --color-mql-surface-hover: #ececeb;
+  --color-mql-tint: #fff3ec;
+  --color-mql-graphic: #e8541f;
+  --color-mql-text-accent: #c4400f;
+  --color-mql-on-dark: #ff7a33;
+  --color-mql-dark-text: #d4d4d4;
+  --color-mql-hairline: rgba(20, 20, 20, 0.14);
+  --color-mql-hairline-strong: rgba(20, 20, 20, 0.28);
+  --color-mql-hairline-light: rgba(20, 20, 20, 0.12);
+  --color-mql-hairline-grid: rgba(20, 20, 20, 0.16);
+  --color-mql-outline: rgba(20, 20, 20, 0.34);
+  --color-mql-scrim: rgba(20, 20, 20, 0.86);
+  --color-mql-on-dark-border: rgba(255, 255, 255, 0.4);
+  --color-mql-on-dark-hover: rgba(255, 255, 255, 0.1);
+
+  --font-mql-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mql-body: var(--font-hanken-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-mql-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  /*
+    Marketing surface refresh — teal brand, deep-teal navy bands, orange CTAs
+    (Menu-QR-Lab style). Scoped to the public marketing shell so the admin and
+    restaurant surfaces keep the original palette.
+  */
+  .marketing-theme {
+    --color-primary: #0d9488;
+    --color-primary-dark: #0f766e;
+    --color-navy: #0b3140;
+    --color-navy-deep: #071f29;
+    --color-surface-warm: #e6f6f3;
+    --color-outline-variant: #c7e8e3;
+    --radius-control: 9999px;
+    --shadow-glow:
+      0 12px 28px -8px rgba(13, 148, 136, 0.35), 0 4px 10px -4px rgba(13, 148, 136, 0.25);
+    --shadow-glow-lift:
+      0 24px 48px -12px rgba(13, 148, 136, 0.4), 0 8px 16px -6px rgba(13, 148, 136, 0.28);
+    --gradient-brand: linear-gradient(135deg, #14b8a6 0%, #0d9488 45%, #0f766e 100%);
+    --gradient-warm:
+      radial-gradient(120% 120% at 100% 0%, rgba(20, 184, 166, 0.14) 0%, rgba(13, 148, 136, 0) 60%),
+      radial-gradient(100% 140% at 0% 100%, rgba(13, 148, 136, 0.1) 0%, rgba(13, 148, 136, 0) 55%);
+  }
+
+  body {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible focus for keyboard users on every interactive element. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* RTL preparation: logical-property friendly defaults. */
+  [dir="rtl"] {
+    text-align: right;
+  }
+}
+
+@layer utilities {
+  .shadow-lift {
+    box-shadow: var(--shadow-lift);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-glow-lift {
+    box-shadow: var(--shadow-glow-lift);
+  }
+  .bg-gradient-brand {
+    background-image: var(--gradient-brand);
+  }
+  /* Subtle dot-grid texture for hero/section backgrounds — decorative, low
+     contrast, never competes with foreground content or text legibility. */
+  .bg-dot-grid {
+    background-image: radial-gradient(circle, rgba(17, 24, 39, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  /* Same texture for dark (navy) bands. */
+  .bg-dot-grid-light {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .shadow-glow-cta {
+    box-shadow: var(--shadow-glow-cta);
+  }
+  .bg-warm-glow {
+    background-image: var(--gradient-warm);
+  }
+
+  /*
+    Public restaurant shell: reserve space for the fixed bottom action bar so it
+    never covers content (footer, cookie controls, campaign buttons, etc.).
+  */
+  .restaurant-public-shell {
+    --restaurant-action-bar-height: 76px;
+  }
+  /* Reserve the fixed action-bar space on the footer itself so the footer's
+     dark background fills it — the bar then sits flush beneath the footer with
+     no gap of page background showing between them. */
+  .restaurant-public-shell > footer {
+    padding-bottom: calc(var(--restaurant-action-bar-height) + env(safe-area-inset-bottom) + 16px);
+  }
+  .text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print stylesheet for legal pages. */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+  }
+}

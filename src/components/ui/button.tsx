@@ -1,0 +1,56 @@
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 rounded-control font-body text-button font-bold transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:shadow-none active:scale-[0.98] [&_svg]:size-[18px] [&_svg]:shrink-0",
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-gradient-brand text-white shadow-glow hover:-translate-y-0.5 hover:shadow-glow-lift",
+        cta: "bg-cta text-white shadow-glow-cta hover:bg-cta-dark hover:-translate-y-0.5 hover:shadow-glow-cta",
+        secondary:
+          "bg-surface-container text-text-primary border border-border hover:-translate-y-0.5 hover:bg-surface-container-high hover:shadow-card",
+        outline:
+          "border border-input-border bg-canvas text-text-primary hover:-translate-y-0.5 hover:border-primary/30 hover:bg-surface hover:shadow-card",
+        ghost: "text-text-primary hover:bg-surface-container",
+        dark: "bg-navy text-white hover:-translate-y-0.5 hover:bg-navy-deep hover:shadow-lift",
+        danger: "bg-danger text-white hover:brightness-95",
+        link: "text-primary-dark underline-offset-4 hover:underline",
+      },
+      size: {
+        sm: "h-9 px-3 text-small",
+        md: "h-11 px-5",
+        lg: "h-12 px-6 text-body",
+        icon: "h-11 w-11 p-0",
+      },
+    },
+    defaultVariants: { variant: "primary", size: "md" },
+  },
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild, children, ...props }, ref) => {
+    const classes = cn(buttonVariants({ variant, size }), className);
+    if (asChild && React.isValidElement(children)) {
+      const child = children as React.ReactElement<{ className?: string }>;
+      return React.cloneElement(child, {
+        className: cn(buttonVariants({ variant, size }), child.props.className, className),
+      });
+    }
+    return (
+      <button ref={ref} className={classes} {...props}>
+        {children}
+      </button>
+    );
+  },
+);
+Button.displayName = "Button";
+
+export { buttonVariants };
