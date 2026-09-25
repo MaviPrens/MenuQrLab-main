@@ -7,25 +7,29 @@ import type { ShowcaseConfig } from "@/lib/showcase";
 type Props = { wipes: ShowcaseConfig; magnets: ShowcaseConfig; dbBacked: boolean };
 
 const samples = [
-  { label: "Fresh ideas", note: "SAMPLE ARTWORK", color: "#e9ebe2", ink: "#1e554c", motif: "✦" },
-  { label: "Good food", note: "SAMPLE ARTWORK", color: "#f7b94a", ink: "#512a25", motif: "◒" },
-  { label: "Made to stay", note: "SAMPLE ARTWORK", color: "#164e4e", ink: "#fff4d4", motif: "✳" },
-  { label: "Your place", note: "SAMPLE ARTWORK", color: "#f7dfd0", ink: "#9b372c", motif: "☼" },
-  { label: "Hello again", note: "SAMPLE ARTWORK", color: "#e4583f", ink: "#fff5df", motif: "✳" },
-  { label: "The little things", note: "SAMPLE ARTWORK", color: "#d9e7ee", ink: "#193a57", motif: "✦" },
+  { label: "Fresh ideas", note: "GOOD FOOD · GOOD DAYS", color: "#e8f0da", ink: "#24564a", motif: "✿" },
+  { label: "Good food", note: "MADE WITH A SMILE", color: "#ffc64e", ink: "#603029", motif: "☀" },
+  { label: "Made to stay", note: "COME BACK SOON", color: "#0e5959", ink: "#fff4d4", motif: "✳" },
+  { label: "Your place", note: "EVERYDAY MOMENTS", color: "#f9d5c5", ink: "#923d31", motif: "♥" },
+  { label: "Hello again", note: "GOOD TIMES AHEAD", color: "#f16a46", ink: "#fff5df", motif: "✽" },
+  { label: "The little things", note: "ALWAYS REMEMBERED", color: "#cee9f3", ink: "#164564", motif: "✦" },
 ];
 
 function SampleProduct({ index, kind, className = "" }: { index: number; kind: "wipe" | "magnet"; className?: string }) {
   const sample = samples[index % samples.length];
   return (
-    <div className={`relative isolate flex items-center justify-center overflow-hidden shadow-[0_12px_24px_rgba(20,32,42,.15)] ${kind === "wipe" ? "aspect-[12/7] rounded-[10px]" : "aspect-[9/6] rounded-[12px]"} ${className}`}
+    <div className={`relative isolate flex items-center justify-center overflow-hidden border border-black/5 shadow-[0_14px_22px_rgba(20,32,42,.17)] ${kind === "wipe" ? "aspect-[12/7] rounded-[10px]" : "aspect-[9/6] rounded-[12px]"} ${className}`}
       style={{ backgroundColor: sample.color, color: sample.ink }} aria-label={`${kind === "wipe" ? "Wet wipe" : "Magnet"} placeholder sample artwork`}>
       {kind === "wipe" && <><span className="absolute inset-y-0 left-0 w-[5%] border-r border-current/20 bg-white/15 [background-image:repeating-linear-gradient(0deg,transparent_0_4px,rgba(255,255,255,.4)_4px_6px)]" aria-hidden /><span className="absolute inset-y-0 right-0 w-[5%] border-l border-current/20 bg-white/15 [background-image:repeating-linear-gradient(0deg,transparent_0_4px,rgba(255,255,255,.4)_4px_6px)]" aria-hidden /></>}
-      <span className="absolute -right-[5%] -bottom-[35%] text-[clamp(5rem,12vw,10rem)] leading-none opacity-20" aria-hidden>{sample.motif}</span>
-      <div className="relative z-10 max-w-[75%] text-center">
-        <span className="block text-[clamp(9px,1vw,12px)] font-bold tracking-[.16em] uppercase">{sample.note}</span>
-        <strong className="mt-1 block font-[family-name:var(--font-manrope)] text-[clamp(1rem,2.1vw,2rem)] leading-tight font-extrabold tracking-[-.06em]">{sample.label}</strong>
+      <span className="absolute -top-[38%] -right-[12%] size-[75%] rounded-full border-[10px] border-current opacity-[.09]" aria-hidden />
+      <span className="absolute -bottom-[45%] -left-[12%] size-[65%] rounded-full border-[8px] border-current opacity-[.1]" aria-hidden />
+      <span className="absolute top-[8%] right-[9%] rotate-12 text-[clamp(1.7rem,4vw,3.6rem)] leading-none opacity-90" aria-hidden>{sample.motif}</span>
+      <span className="absolute bottom-[8%] left-[10%] -rotate-12 text-[clamp(1.4rem,3vw,2.5rem)] leading-none opacity-50" aria-hidden>{sample.motif}</span>
+      <div className="relative z-10 max-w-[74%] -rotate-2 text-center">
+        <strong className="block font-[family-name:var(--font-manrope)] text-[clamp(1rem,2.1vw,2rem)] leading-tight font-extrabold tracking-[-.06em]">{sample.label}</strong>
+        <span className="mt-2 inline-block border-t border-current/40 pt-1.5 text-[clamp(7px,.7vw,10px)] font-bold tracking-[.12em] uppercase">{sample.note}</span>
       </div>
+      <span className="absolute bottom-[6%] right-[8%] text-[7px] font-bold tracking-wider uppercase opacity-70">Concept sample</span>
     </div>
   );
 }
@@ -38,7 +42,8 @@ function QuoteLink({ children, outline = false }: { children: React.ReactNode; o
 
 export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
   return <div className="overflow-hidden bg-white font-[family-name:var(--font-manrope)] text-[#16283c]">
-    <section className="bg-[#fffaf5] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
+    <section className="relative bg-[#fffaf5] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
+      <span className="pointer-events-none absolute -top-24 right-[20%] size-64 rounded-full bg-[#ffe9d8]/50 blur-3xl" aria-hidden />
       <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
         <div>
           <p className="mb-4 text-xs font-extrabold tracking-[.15em] text-[#cd481c] uppercase">Custom wet wipes &amp; fridge magnets</p>
@@ -52,6 +57,7 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           </div>
         </div>
         <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Illustrative product samples; customer artwork will be added later">
+          <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span>
           <div className="space-y-3 sm:space-y-5"><SampleProduct index={0} kind="wipe" /><SampleProduct index={2} kind="magnet" /><SampleProduct index={4} kind="wipe" /></div>
           <div className="space-y-3 pt-12 sm:space-y-5 sm:pt-16"><SampleProduct index={1} kind="magnet" /><SampleProduct index={3} kind="wipe" /><SampleProduct index={5} kind="magnet" /></div>
         </div>
@@ -70,10 +76,9 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
 
     <section className="bg-[#f6f9fa] px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto grid max-w-[1240px] items-center gap-9 lg:grid-cols-2 lg:gap-16">
-        <div className="relative overflow-hidden rounded-[24px] bg-[#d9e6e4] p-8 sm:p-12">
-          <div className="absolute -top-14 -right-14 size-52 rounded-full bg-white/40" aria-hidden />
-          <div className="relative mx-auto max-w-[400px] rotate-[-4deg]"><SampleProduct index={1} kind="magnet" /></div>
-          <p className="relative mt-8 text-center text-xs font-bold tracking-[.12em] text-[#526777] uppercase">Illustrative sample · your artwork goes here</p>
+        <div className="relative flex min-h-[300px] items-end overflow-hidden rounded-[24px] bg-[#d9e6e4] bg-cover bg-center p-7 sm:min-h-[420px] sm:p-10" style={{ backgroundImage: "url('/images/showcase/restaurant-table-sample.webp')" }}>
+          <div className="relative w-[48%] min-w-[165px] max-w-[300px] rotate-[-7deg] drop-shadow-[0_20px_16px_rgba(0,0,0,.25)]"><SampleProduct index={1} kind="magnet" /></div>
+          <span className="absolute right-5 bottom-5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#375064] uppercase">Illustrative sample</span>
         </div>
         <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">More than a memento</p><h2 className="mt-3 max-w-[560px] text-[clamp(2.2rem,4.3vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Keep your brand<br />in their homes.</h2><p className="mt-5 max-w-[520px] text-base leading-7 text-[#4b5967]">A fridge magnet makes it easy for guests to remember your restaurant after the meal. We turn your brand into something worth keeping.</p><div className="mt-6"><QuoteLink outline>Ask about magnets</QuoteLink></div><div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#dbe4e7] pt-6 text-xs text-[#4b5967]"><span>Visible at home</span><span>Your own design</span><span>Easy to keep</span></div></div>
       </div>
