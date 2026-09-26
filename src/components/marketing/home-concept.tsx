@@ -1,10 +1,31 @@
 import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
+import { WipePacket } from "@/components/marketing/wipe-packet";
 import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 
 type Props = { wipes: ShowcaseConfig; magnets: ShowcaseConfig; dbBacked: boolean };
+
+const wipeNames = [
+  ["best-pizza", "Best Pizza"], ["boston-road-pizza", "Boston Road Pizza"],
+  ["empire-pizza", "Empire Pizza"], ["golden-pizza", "Golden Pizza"],
+  ["holyoke-pizza", "Holyoke Pizza"], ["husky-pizza", "Husky Pizza"],
+  ["liberty-pizza", "Liberty Pizza"], ["ludlow-pizza", "Ludlow Pizza"],
+  ["palace-pizza", "Palace Pizza"], ["parker-pizza", "Parker Pizza"],
+  ["pizza-house", "Pizza House"], ["pizza-palace-granby", "Pizza Palace Granby"],
+  ["pizza-works", "Pizza Works"], ["rinaldis-pizza", "Rinaldi’s Pizza"],
+  ["roka", "Roka"], ["village-pizza", "Village Pizza"],
+] as const;
+
+const previewWipes: ShowcaseConfig = {
+  seconds: 80,
+  items: wipeNames.map(([id, name]) => ({
+    id,
+    image: `/images/showcase/wipe-fronts/${id}.webp`,
+    alt: `${name} custom wet wipe design`,
+  })),
+};
 
 const samples = [
   { label: "Fresh ideas", note: "GOOD FOOD · GOOD DAYS", color: "#e8f0da", ink: "#24564a", motif: "✿" },
@@ -16,11 +37,19 @@ const samples = [
 ];
 
 function SampleProduct({ index, kind, className = "" }: { index: number; kind: "wipe" | "magnet"; className?: string }) {
+  if (kind === "wipe") {
+    const fronts = [
+      { src: "/images/showcase/wipe-fronts/roka.webp", alt: "Roka custom wet wipe" },
+      { src: "/images/showcase/wipe-fronts/best-pizza.webp", alt: "Best Pizza custom wet wipe" },
+      { src: "/images/showcase/wipe-fronts/pizza-works.webp", alt: "Pizza Works custom wet wipe" },
+    ];
+    const front = fronts[index % fronts.length];
+    return <WipePacket src={front.src} alt={front.alt} className={className} eager />;
+  }
   const sample = samples[index % samples.length];
   return (
-    <div className={`relative isolate flex items-center justify-center overflow-hidden border border-black/5 shadow-[0_14px_22px_rgba(20,32,42,.17)] ${kind === "wipe" ? "aspect-[12/7] rounded-[10px]" : "aspect-[9/6] rounded-[12px]"} ${className}`}
-      style={{ backgroundColor: sample.color, color: sample.ink }} aria-label={`${kind === "wipe" ? "Wet wipe" : "Magnet"} placeholder sample artwork`}>
-      {kind === "wipe" && <><span className="absolute inset-y-0 left-0 w-[5%] border-r border-current/20 bg-white/15 [background-image:repeating-linear-gradient(0deg,transparent_0_4px,rgba(255,255,255,.4)_4px_6px)]" aria-hidden /><span className="absolute inset-y-0 right-0 w-[5%] border-l border-current/20 bg-white/15 [background-image:repeating-linear-gradient(0deg,transparent_0_4px,rgba(255,255,255,.4)_4px_6px)]" aria-hidden /></>}
+    <div className={`relative isolate flex aspect-[9/6] items-center justify-center overflow-hidden rounded-[12px] border border-black/5 shadow-[0_14px_22px_rgba(20,32,42,.17)] ${className}`}
+      style={{ backgroundColor: sample.color, color: sample.ink }} aria-label="Magnet placeholder sample artwork">
       <span className="absolute -top-[38%] -right-[12%] size-[75%] rounded-full border-[10px] border-current opacity-[.09]" aria-hidden />
       <span className="absolute -bottom-[45%] -left-[12%] size-[65%] rounded-full border-[8px] border-current opacity-[.1]" aria-hidden />
       <span className="absolute top-[8%] right-[9%] rotate-12 text-[clamp(1.7rem,4vw,3.6rem)] leading-none opacity-90" aria-hidden>{sample.motif}</span>
@@ -41,6 +70,8 @@ function QuoteLink({ children, outline = false }: { children: React.ReactNode; o
 }
 
 export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
+  const displayedWipes = wipes.items.length === 1 && wipes.items[0]?.id === "village-pizza"
+    ? previewWipes : wipes;
   return <div className="overflow-hidden bg-white font-[family-name:var(--font-manrope)] text-[#16283c]">
     <section className="relative bg-[#fffaf5] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
       <span className="pointer-events-none absolute -top-24 right-[20%] size-64 rounded-full bg-[#ffe9d8]/50 blur-3xl" aria-hidden />
@@ -58,8 +89,8 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
         </div>
         <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Illustrative product samples; customer artwork will be added later">
           <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span>
-          <div className="space-y-3 sm:space-y-5"><SampleProduct index={0} kind="wipe" /><SampleProduct index={2} kind="magnet" /><SampleProduct index={4} kind="wipe" /></div>
-          <div className="space-y-3 pt-12 sm:space-y-5 sm:pt-16"><SampleProduct index={1} kind="magnet" /><SampleProduct index={3} kind="wipe" /><SampleProduct index={5} kind="magnet" /></div>
+          <div className="space-y-4 sm:space-y-6"><SampleProduct index={0} kind="wipe" className="-rotate-6" /><SampleProduct index={1} kind="wipe" className="rotate-2" /><SampleProduct index={2} kind="wipe" className="-rotate-3" /></div>
+          <div className="space-y-4 pt-12 sm:space-y-6 sm:pt-16"><SampleProduct index={1} kind="magnet" className="rotate-5" /><SampleProduct index={3} kind="magnet" className="-rotate-3" /><SampleProduct index={5} kind="magnet" className="rotate-2" /></div>
         </div>
       </div>
     </section>
@@ -70,7 +101,7 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed wet wipes</p><h2 id="wipes-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Small detail. Big impact.</h2></div>
           <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful touch your guests can use. Designed around your restaurant and made to keep your name in their hands.</p><div className="mt-4"><QuoteLink outline>Ask about wet wipes</QuoteLink></div></div>
         </div>
-        <ShowcaseStrip config={wipes} kind="wet-wipes" dbBacked={dbBacked} title="Wet wipe designs" description="Selected work · more designs coming soon" />
+        <ShowcaseStrip config={displayedWipes} kind="wet-wipes" dbBacked={dbBacked} title="Wet wipe designs" description="Selected customer work · more designs coming soon" />
       </div>
     </section>
 
