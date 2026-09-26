@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { Icon } from "@/components/shared/icon";
+import { WipePacket } from "@/components/marketing/wipe-packet";
 import { demoStore, DEMO_STORE_EVENT } from "@/lib/storage/demo-store";
 import { parseShowcase, SHOWCASE_SECTIONS, type ShowcaseConfig, type ShowcaseKind } from "@/lib/showcase";
 
@@ -19,12 +20,12 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
     if (dbBacked) return;
     const updateFromDemo = () => {
       const block = demoStore.websiteContent.all().find((b) => b.page === "home" && b.section === SHOWCASE_SECTIONS[kind]);
-      setVisibleConfig(parseShowcase(block?.body, kind));
+      setVisibleConfig(block ? parseShowcase(block.body, kind) : config);
     };
     window.addEventListener(DEMO_STORE_EVENT, updateFromDemo);
     const timer = window.setTimeout(updateFromDemo, 0);
     return () => { window.clearTimeout(timer); window.removeEventListener(DEMO_STORE_EVENT, updateFromDemo); };
-  }, [dbBacked, kind]);
+  }, [dbBacked, kind, config]);
 
   useEffect(() => () => {
     if (resumeTimer.current !== null) window.clearTimeout(resumeTimer.current);
@@ -100,10 +101,14 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
               {items.map((item, index) => (
                 <div key={`${copy}-${item.id}-${index}`}
                   className="showcase-product flex h-[154px] shrink-0 items-center justify-center md:h-[210px]">
-                  {/* Keep the supplied design intact, with its natural aspect ratio. */}
-                  <img src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
-                    loading="eager"
-                    className="h-full w-auto max-w-none rounded-[4px] object-contain shadow-[0_12px_20px_rgba(20,20,20,.19)]" />
+                  {kind === "wet-wipes" ? (
+                    <WipePacket src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
+                      className="h-full w-auto shrink-0" eager />
+                  ) : (
+                    <img src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
+                      loading="eager"
+                      className="h-full w-auto max-w-none rounded-[4px] object-contain shadow-[0_12px_20px_rgba(20,20,20,.19)]" />
+                  )}
                 </div>
               ))}
             </div>
