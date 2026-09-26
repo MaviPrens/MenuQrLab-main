@@ -83,35 +83,36 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
   const displayedMagnets = magnets.items.length === 1 && magnets.items[0]?.id === "best-pizza"
     ? previewMagnets : magnets;
   return <div className="overflow-hidden bg-white font-[family-name:var(--font-manrope)] text-[#16283c]">
-    <section className="relative bg-[#fffaf5] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
+    <section className="relative bg-[radial-gradient(circle_at_82%_22%,#fff0dc_0,transparent_38%),linear-gradient(135deg,#fffaf5,#fff6eb)] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
       <span className="pointer-events-none absolute -top-24 right-[20%] size-64 rounded-full bg-[#ffe9d8]/50 blur-3xl" aria-hidden />
       <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
         <div>
-          <p className="mb-4 text-xs font-extrabold tracking-[.15em] text-[#cd481c] uppercase">Custom wet wipes &amp; fridge magnets</p>
+          <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-extrabold tracking-[.13em] text-[#c64b1d] uppercase shadow-[0_5px_18px_rgba(127,69,30,.07)]"><span className="size-2 rounded-full bg-[#fa631d]" />Made for local restaurants</p>
           <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
-          <p className="mt-6 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">Turn everyday moments into lasting impressions with custom printed wet wipes and fridge magnets made for your restaurant.</p>
-          <div className="mt-7"><QuoteLink>Get a Quote</QuoteLink></div>
+          <p className="mt-6 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">You put your heart into every order. Let&apos;s make sure people remember your restaurant with custom wet wipes, fridge magnets and a stronger presence online.</p>
+          <div className="mt-7 flex flex-wrap items-center gap-4"><QuoteLink>Let&apos;s talk about your business</QuoteLink><span className="text-sm font-semibold text-[#596777]">Tell us what you need. We&apos;ll help you get started.</span></div>
           <div className="mt-9 grid max-w-[600px] grid-cols-3 gap-3 border-t border-[#e8dfd8] pt-6 text-xs font-medium text-[#435267] sm:text-sm">
-            <span><Icon name="Sparkles" className="mb-2 size-5 text-[#ed5b25]" aria-hidden />Made for your brand</span>
-            <span><Icon name="Heart" className="mb-2 size-5 text-[#ed5b25]" aria-hidden />Useful every day</span>
-            <span><Icon name="Users" className="mb-2 size-5 text-[#ed5b25]" aria-hidden />Keep guests connected</span>
+            <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Sparkles" className="size-5" aria-hidden /></span>Look like your restaurant</span>
+            <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Heart" className="size-5" aria-hidden /></span>Stay on their minds</span>
+            <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Users" className="size-5" aria-hidden /></span>Reach more locals</span>
           </div>
         </div>
         <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Customer wet wipe and fridge magnet designs">
-          <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span>
+          <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span><span className="absolute -left-4 top-[34%] rotate-[-15deg] text-3xl font-black text-[#ff9b35] sm:-left-8" aria-hidden>✦</span>
           <div className="space-y-4 sm:space-y-6"><SampleProduct index={0} kind="wipe" className="-rotate-6" /><SampleProduct index={1} kind="wipe" className="rotate-2" /><SampleProduct index={2} kind="wipe" className="-rotate-3" /></div>
           <div className="space-y-4 pt-12 sm:space-y-6 sm:pt-16"><SampleProduct index={0} kind="magnet" className="rotate-5" /><SampleProduct index={1} kind="magnet" className="-rotate-3" /><SampleProduct index={2} kind="magnet" className="rotate-2" /></div>
+          <span className="absolute -right-2 -bottom-8 rotate-[-7deg] rounded-full bg-[#ffdf9b] px-4 py-2 text-[11px] font-extrabold text-[#744327] shadow-md sm:right-3">Made to be remembered ✳</span>
         </div>
       </div>
     </section>
 
-    <section className="px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="wipes-title">
+    <section className="bg-[linear-gradient(180deg,#fff,#fff9f3)] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="wipes-title">
       <div className="mx-auto max-w-[1240px]">
         <div className="mb-7 grid gap-4 md:grid-cols-2 md:items-end">
           <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed wet wipes</p><h2 id="wipes-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Small detail. Big impact.</h2></div>
-          <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful touch your guests can use. Designed around your restaurant and made to keep your name in their hands.</p><div className="mt-4"><QuoteLink outline>Ask about wet wipes</QuoteLink></div></div>
+          <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful detail guests actually use. Put your name in their hands with a wipe designed to feel right at home in your restaurant.</p><div className="mt-4"><QuoteLink outline>Make it yours</QuoteLink></div></div>
         </div>
-        <ShowcaseStrip config={displayedWipes} kind="wet-wipes" dbBacked={dbBacked} title="Wet wipe designs" description="Selected customer work · more designs coming soon" />
+        <ShowcaseStrip config={displayedWipes} kind="wet-wipes" dbBacked={dbBacked} title="Made for places like yours" description="Your restaurant could be next." />
       </div>
     </section>
 
@@ -121,11 +122,39 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           <div className="relative w-[48%] min-w-[165px] max-w-[300px] rotate-[-7deg] drop-shadow-[0_20px_16px_rgba(0,0,0,.25)]"><SampleProduct index={1} kind="magnet" /></div>
           <span className="absolute right-5 bottom-5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#375064] uppercase">Customer magnet design</span>
         </div>
-        <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">More than a memento</p><h2 className="mt-3 max-w-[560px] text-[clamp(2.2rem,4.3vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Keep your brand<br />in their homes.</h2><p className="mt-5 max-w-[520px] text-base leading-7 text-[#4b5967]">A fridge magnet makes it easy for guests to remember your restaurant after the meal. We turn your brand into something worth keeping.</p><div className="mt-6"><QuoteLink outline>Ask about magnets</QuoteLink></div><div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#dbe4e7] pt-6 text-xs text-[#4b5967]"><span>Visible at home</span><span>Your own design</span><span>Easy to keep</span></div></div>
+        <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">More than a memento</p><h2 className="mt-3 max-w-[560px] text-[clamp(2.2rem,4.3vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Keep your brand<br />in their homes.</h2><p className="mt-5 max-w-[520px] text-base leading-7 text-[#4b5967]">A guest enjoyed your food today. Make it easy for them to find you the next time hunger strikes. A custom fridge magnet keeps your restaurant and contact details close.</p><div className="mt-6"><QuoteLink outline>Create your magnet</QuoteLink></div><div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#dbe4e7] pt-6 text-xs text-[#4b5967]"><span>Visible at home</span><span>Your own design</span><span>Easy to keep</span></div></div>
       </div>
     </section>
 
-    <section className="px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="magnets-title"><div className="mx-auto max-w-[1240px]"><div className="mb-7 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed fridge magnets</p><h2 id="magnets-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Real restaurants. Lasting connections.</h2></div><QuoteLink outline>Explore more designs</QuoteLink></div><ShowcaseStrip config={displayedMagnets} kind="magnets" dbBacked={dbBacked} title="Magnet designs" description="Selected customer work · more designs coming soon" /></div></section>
+    <section className="px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="magnets-title"><div className="mx-auto max-w-[1240px]"><div className="mb-7 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed fridge magnets</p><h2 id="magnets-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Real restaurants. Lasting connections.</h2></div><QuoteLink outline>Put your brand here</QuoteLink></div><ShowcaseStrip config={displayedMagnets} kind="magnets" dbBacked={dbBacked} title="A place on their fridge" description="Picture your restaurant here." /></div></section>
+
+    <section className="relative bg-[#fff2e7] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="visibility-title">
+      <div className="pointer-events-none absolute top-10 right-[9%] text-6xl text-[#ffad67]/50" aria-hidden>✳</div>
+      <div className="relative mx-auto max-w-[1240px]">
+        <div className="grid items-center gap-9 lg:grid-cols-[1.1fr_.9fr] lg:gap-16">
+          <div>
+            <p className="text-xs font-extrabold tracking-[.15em] text-[#c94c1d] uppercase">Beyond the table</p>
+            <h2 id="visibility-title" className="mt-3 max-w-[730px] text-[clamp(2.3rem,4.6vw,4.1rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Your next customer is <span className="text-[#ed5b25]">looking online.</span></h2>
+            <p className="mt-5 max-w-[650px] text-base leading-7 text-[#4b5967]">The way people find a place to eat has changed. They discover local spots on Instagram and Facebook, check Google reviews and look for a website before they visit. Let&apos;s help them find yours and give them a reason to choose you.</p>
+            <div className="mt-7"><QuoteLink>Let&apos;s make your business visible</QuoteLink></div>
+          </div>
+          <div className="relative mx-auto grid w-full max-w-[440px] grid-cols-2 gap-3 rounded-[28px] border border-white/80 bg-white/70 p-4 shadow-[0_22px_50px_rgba(123,67,39,.12)] sm:gap-4 sm:p-6" aria-label="Ways customers discover local restaurants">
+            <span className="absolute -top-4 right-4 rotate-6 rounded-full bg-[#ffcf6f] px-4 py-2 text-[11px] font-extrabold text-[#5d3d22] shadow-sm">Be the place they find ✦</span>
+            {[{ icon: "Instagram", label: "Discover you", color: "#ffe0d5" }, { icon: "Search", label: "Find you", color: "#e3f0ee" }, { icon: "Star", label: "Trust you", color: "#fff0c8" }, { icon: "MousePointerClick", label: "Choose you", color: "#e2e8f6" }].map(item => <div key={item.label} className="flex min-h-[120px] flex-col justify-between rounded-2xl p-4 shadow-[0_8px_18px_rgba(34,47,57,.06)] sm:min-h-[145px] sm:p-5" style={{ backgroundColor: item.color }}><Icon name={item.icon} className="size-8 text-[#172f46]" aria-hidden /><span className="text-base font-extrabold tracking-tight sm:text-lg">{item.label}<span className="text-[#ed5b25]">.</span></span></div>)}
+          </div>
+        </div>
+        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {[
+            { icon: "Instagram", title: "Instagram & Facebook", body: "Social media management that keeps your restaurant in the conversation." },
+            { icon: "MessageCircle", title: "Google reviews", body: "Help customers hear from happy guests and stay on top of feedback." },
+            { icon: "ChartNoAxesCombined", title: "Google Analytics", body: "Understand how people find and use your website." },
+            { icon: "Monitor", title: "Website design", body: "A clear, welcoming site that makes it easy to see your menu and get in touch." },
+            { icon: "PanelTop", title: "Printed brochures", body: "Take your offers into the neighborhood with a design that feels like your brand." },
+            { icon: "QrCode", title: "QR & online menus", body: "Give guests a quick path from a scan to your menu and useful links." },
+          ].map(service => <div key={service.title} className="rounded-2xl border border-[#f2dac9] bg-white p-5 shadow-[0_10px_22px_rgba(124,70,38,.05)] sm:p-6"><span className="flex size-11 items-center justify-center rounded-full bg-[#fff0df] text-[#e95a21]"><Icon name={service.icon} className="size-6" aria-hidden /></span><h3 className="mt-4 text-lg font-extrabold tracking-tight">{service.title}</h3><p className="mt-2 text-sm leading-6 text-[#536273]">{service.body}</p></div>)}
+        </div>
+      </div>
+    </section>
 
     <section className="bg-[#132d42] px-5 py-16 text-white sm:px-8 sm:py-20" aria-labelledby="qr-service-title">
       <div className="mx-auto max-w-[1240px]">
@@ -133,7 +162,7 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           <div>
             <p className="text-xs font-extrabold tracking-[.16em] text-[#ffb77e] uppercase">QR codes &amp; online menus</p>
             <h2 id="qr-service-title" className="mt-3 max-w-[700px] text-[clamp(2.3rem,4.7vw,4.4rem)] leading-[1.06] font-extrabold tracking-[-.06em]">One scan. Everything your guests need.</h2>
-            <p className="mt-5 max-w-[640px] text-base leading-7 text-[#d2e0e9]">We create a branded online menu for your restaurant and connect it to a QR experience your guests can use right away. The design, setup and updates are managed by our team.</p>
+            <p className="mt-5 max-w-[640px] text-base leading-7 text-[#d2e0e9]">Give a hungry customer a simple next step. We create your branded online menu and connect it to a QR experience with the links guests need. Our team handles the design, setup and updates.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href={routes.marketing.howItWorks()} className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#f06428] px-6 text-sm font-bold text-white transition hover:bg-[#d94d17]">How it works <Icon name="ArrowRight" className="size-4" aria-hidden /></Link>
               <Link href={routes.marketing.features()} className="inline-flex min-h-12 items-center gap-2 rounded-xl border border-white/40 px-6 text-sm font-bold text-white transition hover:bg-white/10">Explore digital features</Link>
@@ -166,6 +195,6 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
       { n: "3", icon: "PackageCheck", title: "Ready for production", body: "Once approved, we prepare the design for your order." },
     ].map(step => <div key={step.n} className="rounded-2xl border border-[#f0e7df] bg-white p-6 shadow-[0_8px_24px_rgba(26,36,46,.04)]"><div className="flex items-center gap-4"><span className="flex size-12 items-center justify-center rounded-full bg-[#fff0e5] text-xl font-extrabold text-[#e85a24]">{step.n}</span><Icon name={step.icon} className="size-7 text-[#193249]" aria-hidden /></div><h3 className="mt-5 text-lg font-extrabold">{step.title}</h3><p className="mt-2 text-sm leading-6 text-[#526171]">{step.body}</p></div>)}</div></div></section>
 
-    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Ready to get started?</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">Ready to bring your brand to more tables?</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us what you need. We’ll help you find the right design for your restaurant.</p></div><div className="shrink-0"><QuoteLink>Get a Quote</QuoteLink></div></div></section>
+    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Your next chapter starts here</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">More locals should know your name.</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us about your restaurant. We&apos;ll help you choose the print and digital services that make sense for your business.</p></div><div className="shrink-0"><QuoteLink>Get a Quote</QuoteLink></div></div></section>
   </div>;
 }
