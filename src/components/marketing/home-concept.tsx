@@ -78,7 +78,7 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
       <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
         <div>
           <p className="mb-4 text-xs font-extrabold tracking-[.15em] text-[#cd481c] uppercase">Custom wet wipes &amp; fridge magnets</p>
-          <h1 className="max-w-[680px] text-[clamp(3.1rem,6vw,5.6rem)] leading-[.99] font-extrabold tracking-[-.07em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
+          <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
           <p className="mt-6 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">Turn everyday moments into lasting impressions with custom printed wet wipes and fridge magnets made for your restaurant.</p>
           <div className="mt-7"><QuoteLink>Get a Quote</QuoteLink></div>
           <div className="mt-9 grid max-w-[600px] grid-cols-3 gap-3 border-t border-[#e8dfd8] pt-6 text-xs font-medium text-[#435267] sm:text-sm">
@@ -87,7 +87,7 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
             <span><Icon name="Users" className="mb-2 size-5 text-[#ed5b25]" aria-hidden />Keep guests connected</span>
           </div>
         </div>
-        <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Illustrative product samples; customer artwork will be added later">
+        <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Customer wet wipe designs and illustrative magnet concepts">
           <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span>
           <div className="space-y-4 sm:space-y-6"><SampleProduct index={0} kind="wipe" className="-rotate-6" /><SampleProduct index={1} kind="wipe" className="rotate-2" /><SampleProduct index={2} kind="wipe" className="-rotate-3" /></div>
           <div className="space-y-4 pt-12 sm:space-y-6 sm:pt-16"><SampleProduct index={1} kind="magnet" className="rotate-5" /><SampleProduct index={3} kind="magnet" className="-rotate-3" /><SampleProduct index={5} kind="magnet" className="rotate-2" /></div>
