@@ -105,9 +105,10 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
                     <WipePacket src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
                       className="h-full w-auto shrink-0" eager />
                   ) : (
-                    <img src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
-                      loading="eager"
-                      className="h-full w-auto max-w-none rounded-[4px] object-contain shadow-[0_12px_20px_rgba(20,20,20,.19)]" />
+                    <div className="aspect-[3/2] h-full shrink-0 overflow-hidden rounded-[8px] shadow-[0_12px_20px_rgba(20,20,20,.19)]">
+                      <img src={item.image} alt={copy === 0 && index < visibleConfig.items.length ? item.alt : ""}
+                        loading="eager" className="h-full w-full scale-[1.018] object-cover" />
+                    </div>
                   )}
                 </div>
               ))}
