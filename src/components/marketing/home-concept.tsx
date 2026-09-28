@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
 import { WipePacket } from "@/components/marketing/wipe-packet";
+import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
+import { appConfig } from "@/lib/config/app-config";
 import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 
@@ -72,7 +74,8 @@ function SampleProduct({ index, kind, className = "" }: { index: number; kind: "
 }
 
 function QuoteLink({ children, outline = false }: { children: React.ReactNode; outline?: boolean }) {
-  return <Link href={routes.marketing.contact()} className={outline
+  const href = appConfig.support.email ? `mailto:${appConfig.support.email}?subject=${encodeURIComponent("Let's talk about my business")}` : routes.marketing.contact();
+  return <Link href={href} className={outline
     ? "inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-[#f06428] px-6 text-sm font-bold text-[#ca4b1c] transition hover:bg-[#fff0e8]"
     : "inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-[#ee5a24] px-7 text-sm font-bold text-white shadow-[0_8px_18px_rgba(238,90,36,.16)] transition hover:bg-[#d44717]"}>{children}<Icon name="ArrowRight" className="size-4" aria-hidden /></Link>;
 }
@@ -90,19 +93,14 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-extrabold tracking-[.13em] text-[#c64b1d] uppercase shadow-[0_5px_18px_rgba(127,69,30,.07)]"><span className="size-2 rounded-full bg-[#fa631d]" />Made for local restaurants</p>
           <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
           <p className="mt-6 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">You put your heart into every order. Let&apos;s make sure people remember your restaurant with custom wet wipes, fridge magnets and a stronger presence online.</p>
-          <div className="mt-7 flex flex-wrap items-center gap-4"><QuoteLink>Let&apos;s talk about your business</QuoteLink><span className="text-sm font-semibold text-[#596777]">Tell us what you need. We&apos;ll help you get started.</span></div>
+          <div className="mt-7 flex flex-wrap items-center gap-4"><QuoteLink>{appConfig.support.email ? "Email us about your project" : "Let’s talk about your business"}</QuoteLink><span className="text-sm font-semibold text-[#596777]">Tell us what you need. We&apos;ll help you get started.</span></div>
           <div className="mt-9 grid max-w-[600px] grid-cols-3 gap-3 border-t border-[#e8dfd8] pt-6 text-xs font-medium text-[#435267] sm:text-sm">
             <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Sparkles" className="size-5" aria-hidden /></span>Look like your restaurant</span>
             <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Heart" className="size-5" aria-hidden /></span>Stay on their minds</span>
             <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Users" className="size-5" aria-hidden /></span>Reach more locals</span>
           </div>
         </div>
-        <div className="relative grid grid-cols-2 items-center gap-3 sm:gap-5" aria-label="Customer wet wipe and fridge magnet designs">
-          <span className="absolute -top-5 right-0 rotate-12 text-4xl font-bold text-[#ed5b25]" aria-hidden>✳</span><span className="absolute -left-4 top-[34%] rotate-[-15deg] text-3xl font-black text-[#ff9b35] sm:-left-8" aria-hidden>✦</span>
-          <div className="space-y-4 sm:space-y-6"><SampleProduct index={0} kind="wipe" className="-rotate-6" /><SampleProduct index={1} kind="wipe" className="rotate-2" /><SampleProduct index={2} kind="wipe" className="-rotate-3" /></div>
-          <div className="space-y-4 pt-12 sm:space-y-6 sm:pt-16"><SampleProduct index={0} kind="magnet" className="rotate-5" /><SampleProduct index={1} kind="magnet" className="-rotate-3" /><SampleProduct index={2} kind="magnet" className="rotate-2" /></div>
-          <span className="absolute -right-2 -bottom-8 rotate-[-7deg] rounded-full bg-[#ffdf9b] px-4 py-2 text-[11px] font-extrabold text-[#744327] shadow-md sm:right-3">Made to be remembered ✳</span>
-        </div>
+        <LifestyleScenes />
       </div>
     </section>
 
