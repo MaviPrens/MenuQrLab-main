@@ -60,13 +60,13 @@ export default async function HomePage() {
       <Hero
         eyebrow="Managed Digital Experience"
         title={copy("home", "hero", "Turn Every QR Scan Into a Better Restaurant Experience")}
-        description="We manage the technology so you can manage the food. A fully branded, high-speed digital menu and ordering experience built for modern restaurants."
-        primaryCta={{ label: "Request Your QR Package", href: routes.marketing.contact() }}
+        description="Custom print products and digital tools that keep your restaurant in mind. Tell us your goals and budget, and we'll find an option that fits."
+        primaryCta={{ label: "Request a tailored quote", href: routes.marketing.contact() }}
         secondaryCta={{
           label: "View Demo Restaurant",
           href: routes.restaurant.home("pizza-house"),
         }}
-        assurances={["No fixed setup fees", "Custom-tailored pricing"]}
+        assurances={["Options for your budget", "Tailored to your restaurant"]}
       />
 
       <div className="mx-auto w-full max-w-[1240px] px-4 sm:px-8">
@@ -118,7 +118,7 @@ export default async function HomePage() {
             </h3>
             <div className="md:border-l md:border-mql-hairline md:pl-16">
               <p className="max-w-[30em] text-base leading-[1.65] text-mql-body">
-                Useful take-home print products keep your restaurant in mind long after the last bite. Every design is prepared around your own brand.
+                Useful take-home print products keep your restaurant in mind long after the last bite. We'll shape the design and options around your brand and budget.
               </p>
               <Link href={routes.marketing.contact()}
                 className="mt-5 inline-flex min-h-11 items-center rounded-full bg-mql-text-accent px-6 text-sm font-semibold text-white transition-colors hover:bg-mql-ink">
@@ -138,7 +138,7 @@ export default async function HomePage() {
           image={{ src: "/images/restaurants/pizza-house/category-pizzas.jpg", alt: "" }}
           eyebrow="Managed end to end"
           title={copy("home", "cta", "Ready to upgrade your restaurant's digital experience?")}
-          description="Let our team handle the technical details while you run the floor."
+          description="Tell us what your business needs and what works for your budget. We'll recommend a practical next step."
           primary={{ label: "Request a Quote", href: routes.marketing.contact() }}
           secondary={{ label: "View Demo", href: routes.restaurant.home("pizza-house") }}
         />

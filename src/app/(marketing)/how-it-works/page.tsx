@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const steps: Step[] = [
   {
     title: "Restaurant enquiry",
-    description: "You tell us about your restaurant and goals. No accounts, no setup work on your side.",
+    description: "Tell us about your restaurant, goals and budget. We'll help you choose a practical starting point.",
   },
   {
     title: "Information collection",

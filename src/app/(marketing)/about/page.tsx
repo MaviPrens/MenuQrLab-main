@@ -43,7 +43,7 @@ const pillars = [
   {
     icon: "ShieldCheck",
     title: "Honest by default",
-    description: "We don't invent statistics or claims. Demo content is always labelled as such.",
+    description: "Clear recommendations based on your goals, your business and your budget.",
   },
 ];
 
@@ -60,7 +60,7 @@ export default async function AboutPage() {
             as="h1"
             eyebrow={`About ${appConfig.appName}`}
             title={copy("about", "intro", "We manage the technology so you can manage the food")}
-            description="MenuQrLab creates and maintains branded restaurant experiences connected to QR codes — delivered as a managed service, not a self-service tool."
+            description="MenuQrLab brings custom print products, digital menus and marketing support together for local restaurants. Tell us your goals and we'll find a practical fit."
           />
         </Container>
       </section>

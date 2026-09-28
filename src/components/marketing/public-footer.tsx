@@ -14,11 +14,24 @@ export function PublicFooter() {
   const year = new Date().getFullYear();
   return (
     <footer className="border-t border-mql-hairline-grid bg-mql-surface-alt">
+      <div className="bg-[#fff0e2] px-5 py-10 sm:px-8 sm:py-14">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p className="text-xs font-bold tracking-[.14em] text-[#bc4f22] uppercase">Let&apos;s make it happen</p>
+            <h2 className="mt-2 font-mql-body text-2xl font-extrabold tracking-tight text-[#173047] sm:text-3xl">Good ideas can fit your budget.</h2>
+            <p className="mt-2 max-w-[570px] text-sm leading-6 text-[#4d6070]">Tell us what your business needs. We&apos;ll recommend a practical option shaped around your goals and budget.</p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <a href={`tel:${appConfig.support.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#db9a79] px-5 text-sm font-bold text-[#a8431b] transition hover:bg-white">Just a call away</a>
+            <Link href={appConfig.support.email ? `mailto:${appConfig.support.email}?subject=${encodeURIComponent("Request a quote")}` : `${routes.marketing.contact()}#enquiry-form`} className="inline-flex min-h-12 items-center justify-center rounded-xl bg-[#ed5b25] px-5 text-sm font-bold text-white transition hover:bg-[#d84e1d]">{appConfig.support.email ? "Get a quote by email" : "Request your quote"}</Link>
+          </div>
+        </div>
+      </div>
       <div className="mx-auto grid w-full max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-11 px-8 pt-[clamp(52px,5vw,76px)]">
         <div>
           <BrandLogo size="footer" className="mb-[18px]" />
           <p className="mb-[22px] max-w-[26em] font-mql-body text-[.9rem] leading-[1.6] text-mql-secondary">
-            Professionally managed digital menus and QR infrastructure for modern restaurants.
+            Custom print products, digital menus and marketing support for local restaurants.
           </p>
           <p className="mb-[6px] font-mql-body text-[.82rem] leading-[1.5] text-mql-muted">
             Support: {appConfig.support.email ? <a href={`mailto:${appConfig.support.email}`} className="hover:underline">{appConfig.support.email}</a> : <Link href={`${routes.marketing.contact()}#enquiry-form`} className="hover:underline">Send a message</Link>}
@@ -71,7 +84,7 @@ export function PublicFooter() {
           </a>
           <span className="min-w-[20px] flex-1" aria-hidden />
           <span className="text-[.78rem] tracking-[0.02em] text-mql-muted">
-            Managed service · No restaurant-owner accounts
+            Made for businesses of every size
           </span>
           <Link
             href={routes.admin.login()}

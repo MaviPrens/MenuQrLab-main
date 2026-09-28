@@ -10,7 +10,7 @@ import { routes } from "@/lib/routes";
 export const metadata: Metadata = {
   title: `Contact & Enquiry · ${appConfig.appName}`,
   description:
-    "Tell us what your restaurant needs. MenuQrLab is a fully managed QR menu and ordering setup — request a quote, book a demo, or ask a question.",
+    "Ask MenuQrLab about custom wet wipes, magnets, digital menus and marketing. Tell us your goals and budget for a tailored quote.",
 };
 
 const STEPS = [
@@ -51,9 +51,8 @@ export default async function ContactPage({
               Tell us what your restaurant needs
             </h1>
             <p className="text-body text-text-secondary mt-4">
-              We provide a fully managed setup, so your digital menu and QR experiences are up and
-              running smoothly without you lifting a finger. No accounts, no checkout — just tell us
-              about your restaurant.
+              Whether you need custom print products, a digital menu or help getting seen online,
+              tell us what you have in mind and what fits your budget. We&apos;ll suggest a way forward.
             </p>
           </div>
         </Container>
@@ -122,7 +121,7 @@ export default async function ContactPage({
                     </li>
                   </ul>
                   <p className="text-text-tertiary text-xs">
-                    Managed service: we don&apos;t offer owner accounts or self-service checkout.
+                    Every business is different. We&apos;ll help you find an option that fits yours.
                   </p>
                 </div>
               </Card>

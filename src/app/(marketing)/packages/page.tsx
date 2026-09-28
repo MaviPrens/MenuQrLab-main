@@ -22,9 +22,9 @@ export default async function PackagesPage() {
       <section className="mx-auto w-full max-w-[1240px] px-8 pt-[clamp(52px,6vw,92px)]">
         <MqlPageHeader
           eyebrow="Packages"
-          title="Managed packages, tailored pricing"
+          title="The right fit for your restaurant and budget"
           titleMaxWidth="20em"
-          description="Every restaurant is different, so pricing is custom-tailored. Tell us what you need and we'll prepare a quote — no fixed setup fees."
+          description="From a focused first step to a fuller presence, we'll shape a package around your needs and budget. Tell us what matters most and ask for a tailored quote."
           descriptionMaxWidth="38em"
         />
         <ScrollReveal>
@@ -48,7 +48,7 @@ export default async function PackagesPage() {
       <MqlClosingBand
         image={{ src: "/images/restaurants/green-bowl/cover.jpg", alt: "" }}
         title="Tell us what your restaurant needs"
-        description="Share your goals and we'll recommend the right package with clear pricing."
+        description="Share your goals and budget. We'll recommend an option that works for your restaurant and explain the pricing clearly."
         primary={{ label: "Request a Quote", href: routes.marketing.contact() }}
       />
     </>

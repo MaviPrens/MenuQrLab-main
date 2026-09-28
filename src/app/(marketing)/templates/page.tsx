@@ -31,7 +31,7 @@ export default async function TemplatesPage() {
             as="h1"
             eyebrow="Templates"
             title="Five managed starting directions"
-            description="These are managed visual directions, not self-service themes. Our team tailors the chosen direction to your brand, colours and photography."
+            description="Find a look that feels right for your restaurant. We'll tailor the design to your brand, photography and goals."
           />
         </Container>
       </section>

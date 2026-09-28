@@ -5,7 +5,7 @@ import { isDatabaseConfigured } from "@/data/db/client";
 import { parseShowcase, SHOWCASE_SECTIONS } from "@/lib/showcase";
 
 export const metadata: Metadata = {
-  title: "Homepage design preview",
+  title: "Custom Products & Restaurant Marketing | MenuQrLab",
   robots: { index: false, follow: false },
 };
 
