@@ -1,5 +1,5 @@
 const scenes = [
-  { src: "/images/lifestyle/table-product.webp", alt: "Village Pizza wet wipe packet on a restaurant table", label: "On their table", wide: true },
+  { src: "/images/lifestyle/table-rinaldis-product.webp", alt: "Rinaldi’s Pizza wet wipe packet on a restaurant table", label: "On their table", wide: true },
   { src: "/images/lifestyle/fridge-product.webp", alt: "Best Pizza magnet on a refrigerator", label: "On their fridge" },
   { src: "/images/lifestyle/car-product.webp", alt: "Rinaldi’s Pizza air freshener hanging in a car", label: "On the road" },
 ] as const;
