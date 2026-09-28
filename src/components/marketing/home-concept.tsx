@@ -100,22 +100,6 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
       </div>
     </section>
 
-    <section className="bg-[#f0f5f3] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="freshener-title">
-      <div className="mx-auto grid max-w-[1240px] items-center gap-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-16">
-        <div className="relative mx-auto w-full max-w-[470px] overflow-hidden rounded-[28px] shadow-[0_26px_55px_rgba(32,54,51,.18)]">
-          <img src="/images/lifestyle/car-freshener-rinaldis-portrait.webp" alt="Rinaldi’s Pizza custom air freshener hanging from a car rearview mirror" className="block aspect-[2/3] w-full object-cover" loading="lazy" />
-          <span className="absolute right-4 bottom-4 rounded-full bg-white/95 px-4 py-2 text-xs font-extrabold text-[#183948] shadow-sm">On the road with them</span>
-        </div>
-        <div className="py-2">
-          <p className="text-xs font-extrabold tracking-[.15em] text-[#bb4c23] uppercase">Custom car air fresheners</p>
-          <h2 id="freshener-title" className="mt-3 max-w-[670px] text-[clamp(2.2rem,4.4vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Go along for<br /><span className="text-[#db5a2b]">the ride.</span></h2>
-          <p className="mt-5 max-w-[570px] text-base leading-7 text-[#4b5e63]">A custom air freshener puts your restaurant in a place customers see every day. Make the design your own and give them another easy way to remember you when it&apos;s time to order.</p>
-          <div className="mt-7"><QuoteLink>Ask about air fresheners</QuoteLink></div>
-          <div className="mt-9 grid max-w-[560px] grid-cols-3 gap-3 border-t border-[#ccddd8] pt-5 text-xs font-semibold text-[#4c6867] sm:text-sm"><span>Made for your brand</span><span>A daily reminder</span><span>Easy to share</span></div>
-        </div>
-      </div>
-    </section>
-
     <section className="bg-[#f6f9fa] px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto grid max-w-[1240px] items-center gap-9 lg:grid-cols-2 lg:gap-16">
         <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-[#d9e6e4] shadow-[0_22px_48px_rgba(24,44,49,.12)]">
@@ -185,6 +169,22 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
             { n: "3", icon: "ShoppingBag", title: "Online Order with Pay", body: "Connect to your existing ordering platform." },
             { n: "4", icon: "MapPin", title: "Visit Us", body: "Find your location, directions and opening hours." },
           ].map(action => <div key={action.n} className="rounded-2xl border border-white/15 bg-white/[.08] p-5"><div className="flex items-center justify-between"><span className="text-2xl font-extrabold text-[#ffb77e]">{action.n}</span><Icon name={action.icon} className="size-6 text-[#ffb77e]" aria-hidden /></div><h3 className="mt-4 text-base font-extrabold">{action.title}</h3><p className="mt-1 text-sm leading-6 text-[#d2e0e9]">{action.body}</p></div>)}
+        </div>
+      </div>
+    </section>
+
+    <section className="bg-[#f0f5f3] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="freshener-title">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-16">
+        <div className="relative mx-auto w-full max-w-[470px] overflow-hidden rounded-[28px] shadow-[0_26px_55px_rgba(32,54,51,.18)]">
+          <img src="/images/lifestyle/car-freshener-rinaldis-portrait.webp" alt="Rinaldi’s Pizza custom air freshener hanging from a car rearview mirror" className="block aspect-[2/3] w-full object-cover" loading="lazy" />
+          <span className="absolute right-4 bottom-4 rounded-full bg-white/95 px-4 py-2 text-xs font-extrabold text-[#183948] shadow-sm">On the road with them</span>
+        </div>
+        <div className="py-2">
+          <p className="text-xs font-extrabold tracking-[.15em] text-[#bb4c23] uppercase">Custom car air fresheners</p>
+          <h2 id="freshener-title" className="mt-3 max-w-[670px] text-[clamp(2.2rem,4.4vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Go along for<br /><span className="text-[#db5a2b]">the ride.</span></h2>
+          <p className="mt-5 max-w-[570px] text-base leading-7 text-[#4b5e63]">A custom air freshener puts your restaurant in a place customers see every day. Make the design your own and give them another easy way to remember you when it&apos;s time to order.</p>
+          <div className="mt-7"><QuoteLink>Ask about air fresheners</QuoteLink></div>
+          <div className="mt-9 grid max-w-[560px] grid-cols-3 gap-3 border-t border-[#ccddd8] pt-5 text-xs font-semibold text-[#4c6867] sm:text-sm"><span>Made for your brand</span><span>A daily reminder</span><span>Easy to share</span></div>
         </div>
       </div>
     </section>
