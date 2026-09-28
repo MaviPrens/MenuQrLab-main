@@ -78,7 +78,7 @@ export const appConfig: AppConfig = {
     : DEFAULT_LOCALE,
   supportedLocales: parseLocales(env("NEXT_PUBLIC_SUPPORTED_LOCALES")),
   support: {
-    email: env("NEXT_PUBLIC_SUPPORT_EMAIL") ?? null,
+    email: env("NEXT_PUBLIC_SUPPORT_EMAIL") ?? "sales@nunowipes.com",
     phone: env("NEXT_PUBLIC_SUPPORT_PHONE") ?? CONTACT_PHONE,
     whatsapp: env("NEXT_PUBLIC_WHATSAPP_NUMBER") ?? CONTACT_PHONE,
   },

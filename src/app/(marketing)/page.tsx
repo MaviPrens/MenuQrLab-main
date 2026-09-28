@@ -60,7 +60,7 @@ export default async function HomePage() {
       <Hero
         eyebrow="Managed Digital Experience"
         title={copy("home", "hero", "Turn Every QR Scan Into a Better Restaurant Experience")}
-        description="Custom print products and digital tools that keep your restaurant in mind. Tell us your goals and budget, and we'll find an option that fits."
+        description="We produce custom print products for your restaurant and help promote your business with digital menus and marketing. From production to promotion, our team handles every step around your goals and budget."
         primaryCta={{ label: "Request a tailored quote", href: routes.marketing.contact() }}
         secondaryCta={{
           label: "View Demo Restaurant",
