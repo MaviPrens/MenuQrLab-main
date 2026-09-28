@@ -149,7 +149,7 @@ export function EnquiryForm({ presetDesign }: { presetDesign?: string } = {}) {
   const formError = submitState.kind === "error" ? submitState.message : null;
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-6">
+    <form id="enquiry-form" onSubmit={onSubmit} noValidate className="space-y-6 scroll-mt-24">
       {/* Honeypot — visually hidden, off-screen, not announced, not tabbable. */}
       <div
         aria-hidden="true"

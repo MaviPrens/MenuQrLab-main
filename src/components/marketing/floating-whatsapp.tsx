@@ -1,11 +1,12 @@
 import { Icon } from "@/components/shared/icon";
+import { appConfig } from "@/lib/config/app-config";
 
 const message = encodeURIComponent("Hi MenuQrLab! I'd like to talk about custom products for my business.");
 
 export function FloatingWhatsApp() {
   return (
     <a
-      href={`https://wa.me/19546811177?text=${message}`}
+      href={`https://wa.me/${appConfig.support.whatsapp?.replace(/\D/g, "")}?text=${message}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with MenuQrLab on WhatsApp"

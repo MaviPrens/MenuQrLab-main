@@ -4,7 +4,8 @@ import { SectionDivider } from "@/components/shared/section-divider";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/shared/icon";
 import { EnquiryForm } from "@/components/forms/enquiry-form";
-import { appConfig, displayValue } from "@/lib/config/app-config";
+import { appConfig } from "@/lib/config/app-config";
+import { routes } from "@/lib/routes";
 
 export const metadata: Metadata = {
   title: `Contact & Enquiry · ${appConfig.appName}`,
@@ -97,15 +98,27 @@ export default async function ContactPage({
                   <ul className="text-small text-text-secondary space-y-2">
                     <li className="flex items-center gap-2">
                       <Icon name="Mail" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.email)}
+                      {appConfig.support.email ? (
+                        <a className="hover:text-primary underline-offset-4 hover:underline" href={`mailto:${appConfig.support.email}`}>
+                          {appConfig.support.email}
+                        </a>
+                      ) : (
+                        <a className="hover:text-primary underline-offset-4 hover:underline" href={`${routes.marketing.contact()}#enquiry-form`}>
+                          Send a message through the form
+                        </a>
+                      )}
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon name="Phone" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.phone)}
+                      <a className="hover:text-primary underline-offset-4 hover:underline" href={`tel:${appConfig.support.phone}`}>
+                        +1 (954) 681-1177
+                      </a>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon name="MessageCircle" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.whatsapp)}
+                      <a className="hover:text-primary underline-offset-4 hover:underline" href={`https://wa.me/${appConfig.support.whatsapp?.replace(/\D/g, "")}`} target="_blank" rel="noopener noreferrer">
+                        WhatsApp · +1 (954) 681-1177
+                      </a>
                     </li>
                   </ul>
                   <p className="text-text-tertiary text-xs">

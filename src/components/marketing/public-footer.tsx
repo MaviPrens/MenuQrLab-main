@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/navigation";
 import { routes } from "@/lib/routes";
-import { appConfig, displayValue } from "@/lib/config/app-config";
+import { appConfig } from "@/lib/config/app-config";
 import { BrandLogo } from "@/components/marketing/brand-logo";
 
 const COLUMNS: { heading: string; key: keyof typeof footerNav }[] = [
@@ -21,16 +21,16 @@ export function PublicFooter() {
             Professionally managed digital menus and QR infrastructure for modern restaurants.
           </p>
           <p className="mb-[6px] font-mql-body text-[.82rem] leading-[1.5] text-mql-muted">
-            Support: {displayValue(appConfig.support.email)}
+            Support: {appConfig.support.email ? <a href={`mailto:${appConfig.support.email}`} className="hover:underline">{appConfig.support.email}</a> : <Link href={`${routes.marketing.contact()}#enquiry-form`} className="hover:underline">Send a message</Link>}
           </p>
           <a
-            href="sms:+19546811177"
+            href={`tel:${appConfig.support.phone}`}
             className="inline-block font-mql-mono text-base font-medium text-mql-ink transition-colors hover:text-mql-text-accent"
           >
-            (954) 681-1177
+            +1 (954) 681-1177
           </a>
           <p className="mt-[5px] font-mql-body text-[.78rem] leading-[1.5] text-mql-muted">
-            Text only — no calls
+            Call or message us
           </p>
         </div>
 

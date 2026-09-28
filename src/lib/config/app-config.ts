@@ -9,6 +9,7 @@ import { DEFAULT_LOCALE, SUPPORTED_LOCALES, isLocale } from "@/lib/i18n/locales"
  */
 
 const UNCONFIGURED = "To be confirmed" as const;
+const CONTACT_PHONE = "+19546811177";
 
 function env(key: string): string | undefined {
   const value = process.env[key];
@@ -78,8 +79,8 @@ export const appConfig: AppConfig = {
   supportedLocales: parseLocales(env("NEXT_PUBLIC_SUPPORTED_LOCALES")),
   support: {
     email: env("NEXT_PUBLIC_SUPPORT_EMAIL") ?? null,
-    phone: env("NEXT_PUBLIC_SUPPORT_PHONE") ?? null,
-    whatsapp: env("NEXT_PUBLIC_WHATSAPP_NUMBER") ?? null,
+    phone: env("NEXT_PUBLIC_SUPPORT_PHONE") ?? CONTACT_PHONE,
+    whatsapp: env("NEXT_PUBLIC_WHATSAPP_NUMBER") ?? CONTACT_PHONE,
   },
   business: {
     address: env("NEXT_PUBLIC_BUSINESS_ADDRESS") ?? null,
