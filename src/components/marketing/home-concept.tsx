@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
-import { WipePacket } from "@/components/marketing/wipe-packet";
 import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
 import { appConfig } from "@/lib/config/app-config";
 import { routes } from "@/lib/routes";
@@ -49,30 +48,6 @@ const previewMagnets: ShowcaseConfig = {
   })),
 };
 
-const featuredMagnets = [
-  { src: "/images/showcase/magnet-fronts/palace-pizza.webp", alt: "Palace Pizza custom fridge magnet" },
-  { src: "/images/showcase/magnet-fronts/liberty-pizza.webp", alt: "Liberty Pizza custom fridge magnet" },
-  { src: "/images/showcase/magnet-fronts/best-pizza.webp", alt: "Best Pizza custom fridge magnet" },
-];
-
-function SampleProduct({ index, kind, className = "" }: { index: number; kind: "wipe" | "magnet"; className?: string }) {
-  if (kind === "wipe") {
-    const fronts = [
-      { src: "/images/showcase/wipe-fronts/roka.webp", alt: "Roka custom wet wipe" },
-      { src: "/images/showcase/wipe-fronts/best-pizza.webp", alt: "Best Pizza custom wet wipe" },
-      { src: "/images/showcase/wipe-fronts/pizza-works.webp", alt: "Pizza Works custom wet wipe" },
-    ];
-    const front = fronts[index % fronts.length];
-    return <WipePacket src={front.src} alt={front.alt} className={className} eager />;
-  }
-  const magnet = featuredMagnets[index % featuredMagnets.length];
-  return (
-    <div className={`aspect-[3/2] overflow-hidden rounded-[10px] bg-[#e7e5e0] shadow-[0_14px_22px_rgba(20,32,42,.19)] ${className}`}>
-      <img src={magnet.src} alt={magnet.alt} className="h-full w-full object-cover" />
-    </div>
-  );
-}
-
 function QuoteLink({ children, outline = false }: { children: React.ReactNode; outline?: boolean }) {
   const href = appConfig.support.email ? `mailto:${appConfig.support.email}?subject=${encodeURIComponent("Let's talk about my business")}` : routes.marketing.contact();
   return <Link href={href} className={outline
@@ -110,15 +85,42 @@ export function HomeConcept({ wipes, magnets, dbBacked }: Props) {
           <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed wet wipes</p><h2 id="wipes-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Small detail. Big impact.</h2></div>
           <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful detail guests actually use. Put your name in their hands with a wipe designed to feel right at home in your restaurant.</p><div className="mt-4"><QuoteLink outline>Make it yours</QuoteLink></div></div>
         </div>
+        <div className="mb-10 grid overflow-hidden rounded-[28px] border border-[#f1dfd0] bg-[#fff4e9] shadow-[0_20px_48px_rgba(77,49,29,.09)] lg:grid-cols-[1.15fr_.85fr]">
+          <div className="relative aspect-[4/3] min-h-[260px] overflow-hidden sm:min-h-[360px] lg:aspect-auto">
+            <img src="/images/lifestyle/wipes-front-back-rinaldis.webp" alt="Rinaldi’s Pizza custom wet wipe front and back packets on a restaurant table" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          </div>
+          <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
+            <p className="text-xs font-extrabold tracking-[.15em] text-[#c74d1e] uppercase">A detail worth keeping</p>
+            <h3 className="mt-3 text-[clamp(1.8rem,3vw,2.8rem)] leading-[1.12] font-extrabold tracking-[-.05em]">Your brand, front and back.</h3>
+            <p className="mt-4 max-w-[430px] text-sm leading-7 text-[#526070] sm:text-base">A custom wipe adds a thoughtful touch to every order. Both sides can carry your restaurant&apos;s personality, useful details and a quick way for guests to find you again.</p>
+            <p className="mt-5 text-xs font-bold tracking-wide text-[#9b5d41]">Rinaldi&apos;s Pizza · front and back example</p>
+          </div>
+        </div>
         <ShowcaseStrip config={displayedWipes} kind="wet-wipes" dbBacked={dbBacked} title="Made for places like yours" description="Your restaurant could be next." />
+      </div>
+    </section>
+
+    <section className="bg-[#f0f5f3] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="freshener-title">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-8 lg:grid-cols-[.78fr_1.22fr] lg:gap-16">
+        <div className="relative mx-auto w-full max-w-[470px] overflow-hidden rounded-[28px] shadow-[0_26px_55px_rgba(32,54,51,.18)]">
+          <img src="/images/lifestyle/car-freshener-rinaldis-portrait.webp" alt="Rinaldi’s Pizza custom air freshener hanging from a car rearview mirror" className="block aspect-[2/3] w-full object-cover" loading="lazy" />
+          <span className="absolute right-4 bottom-4 rounded-full bg-white/95 px-4 py-2 text-xs font-extrabold text-[#183948] shadow-sm">On the road with them</span>
+        </div>
+        <div className="py-2">
+          <p className="text-xs font-extrabold tracking-[.15em] text-[#bb4c23] uppercase">Custom car air fresheners</p>
+          <h2 id="freshener-title" className="mt-3 max-w-[670px] text-[clamp(2.2rem,4.4vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Go along for<br /><span className="text-[#db5a2b]">the ride.</span></h2>
+          <p className="mt-5 max-w-[570px] text-base leading-7 text-[#4b5e63]">A custom air freshener puts your restaurant in a place customers see every day. Make the design your own and give them another easy way to remember you when it&apos;s time to order.</p>
+          <div className="mt-7"><QuoteLink>Ask about air fresheners</QuoteLink></div>
+          <div className="mt-9 grid max-w-[560px] grid-cols-3 gap-3 border-t border-[#ccddd8] pt-5 text-xs font-semibold text-[#4c6867] sm:text-sm"><span>Made for your brand</span><span>A daily reminder</span><span>Easy to share</span></div>
+        </div>
       </div>
     </section>
 
     <section className="bg-[#f6f9fa] px-5 py-16 sm:px-8 sm:py-20">
       <div className="mx-auto grid max-w-[1240px] items-center gap-9 lg:grid-cols-2 lg:gap-16">
-        <div className="relative flex min-h-[300px] items-end overflow-hidden rounded-[24px] bg-[#d9e6e4] bg-cover bg-center p-7 sm:min-h-[420px] sm:p-10" style={{ backgroundImage: "url('/images/showcase/restaurant-table-sample.webp')" }}>
-          <div className="relative w-[48%] min-w-[165px] max-w-[300px] rotate-[-7deg] drop-shadow-[0_20px_16px_rgba(0,0,0,.25)]"><SampleProduct index={1} kind="magnet" /></div>
-          <span className="absolute right-5 bottom-5 rounded-full bg-white/90 px-3 py-1.5 text-[10px] font-bold tracking-wider text-[#375064] uppercase">Customer magnet design</span>
+        <div className="relative aspect-[4/3] overflow-hidden rounded-[24px] bg-[#d9e6e4] shadow-[0_22px_48px_rgba(24,44,49,.12)]">
+          <img src="/images/lifestyle/fridge-best-pizza-feature.webp" alt="Best Pizza custom magnet on a kitchen refrigerator" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+          <span className="absolute right-4 bottom-4 rounded-full bg-white/95 px-4 py-2 text-[10px] font-bold tracking-wider text-[#375064] uppercase shadow-sm sm:right-5 sm:bottom-5">Best Pizza · fridge magnet</span>
         </div>
         <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">More than a memento</p><h2 className="mt-3 max-w-[560px] text-[clamp(2.2rem,4.3vw,4rem)] leading-[1.08] font-extrabold tracking-[-.06em]">Keep your brand<br />in their homes.</h2><p className="mt-5 max-w-[520px] text-base leading-7 text-[#4b5967]">A guest enjoyed your food today. Make it easy for them to find you the next time hunger strikes. A custom fridge magnet keeps your restaurant and contact details close.</p><div className="mt-6"><QuoteLink outline>Create your magnet</QuoteLink></div><div className="mt-8 grid grid-cols-3 gap-4 border-t border-[#dbe4e7] pt-6 text-xs text-[#4b5967]"><span>Visible at home</span><span>Your own design</span><span>Easy to keep</span></div></div>
       </div>
