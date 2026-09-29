@@ -11,7 +11,7 @@ import type { AdminSnapshot, PersistOp } from "./types";
  * waiting for the ~30s revalidate window. (Restaurant pages are already dynamic.)
  */
 const CONTENT_REVALIDATE_PATHS: Partial<Record<string, string[]>> = {
-  websiteContent: ["/", "/about", "/features"],
+  websiteContent: ["/", "/home-preview", "/about", "/features"],
   templates: ["/templates"],
   faq: ["/faq"],
   packages: ["/packages"],

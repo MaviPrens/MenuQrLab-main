@@ -21,6 +21,8 @@ import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/toast";
 import { ShowcaseManager } from "@/components/admin/showcase-manager";
 import { SHOWCASE_SECTIONS } from "@/lib/showcase";
+import { HeroSceneManager } from "@/components/admin/hero-scene-manager";
+import { HERO_SCENE_SECTIONS } from "@/lib/hero-scenes";
 
 export default function WebsitePage() {
   const user = useAdminUser();
@@ -72,7 +74,7 @@ export default function WebsitePage() {
   const grouped = useMemo(() => {
     const map = new Map<string, WebsiteContentBlock[]>();
     blocks.forEach((b) => {
-      if (Object.values(SHOWCASE_SECTIONS).includes(b.section)) return;
+      if (Object.values(SHOWCASE_SECTIONS).includes(b.section) || Object.values(HERO_SCENE_SECTIONS).includes(b.section)) return;
       const list = map.get(b.page) ?? [];
       list.push(b);
       map.set(b.page, list);
@@ -162,6 +164,7 @@ export default function WebsitePage() {
       </div>
 
       <ShowcaseManager />
+      <HeroSceneManager />
 
       {!ready ? (
         <div className="border-border bg-canvas text-small text-text-secondary rounded-[16px] border p-8 text-center">
