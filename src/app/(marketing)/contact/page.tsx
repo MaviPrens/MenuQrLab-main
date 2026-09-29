@@ -108,9 +108,6 @@ export default async function ContactPage({
                       <a href="https://wa.me/19546811177" target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-primary hover:underline">Message us on WhatsApp</a>
                     </li>
                   </ul>
-                  <p className="text-text-tertiary text-xs">
-                    Managed service: we don&apos;t offer owner accounts or self-service checkout.
-                  </p>
                 </div>
               </Card>
             </div>

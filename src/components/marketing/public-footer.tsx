@@ -17,7 +17,7 @@ export function PublicFooter() {
       <span aria-hidden className="mql-float-delayed pointer-events-none absolute bottom-14 -left-12 size-28 rounded-full border-[18px] border-[#ffbe70]/15" />
       <div className="relative mx-auto grid w-full max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-11 px-8 pt-[clamp(52px,5vw,76px)]">
         <div>
-          <BrandLogo size="footer" className="mb-[18px] [&>span:first-child]:text-white [&>span:last-child]:bg-white/30" />
+          <BrandLogo size="footer" inverse className="mb-[18px]" />
           <p className="mb-[22px] max-w-[26em] font-mql-body text-[.9rem] leading-[1.6] text-[#d3e1e9]">
             Custom products and practical marketing that help local restaurants stay remembered.
           </p>
