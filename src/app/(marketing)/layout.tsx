@@ -1,5 +1,6 @@
 import { PublicHeader } from "@/components/marketing/public-header";
 import { PublicFooter } from "@/components/marketing/public-footer";
+import { FloatingWhatsApp } from "@/components/marketing/floating-whatsapp";
 import { ToastProvider } from "@/components/ui/toast";
 import { CookieNotice } from "@/components/legal/cookie-notice";
 import { MaintenanceScreen } from "@/components/shared/maintenance-screen";
@@ -13,6 +14,7 @@ export default async function MarketingLayout({ children }: { children: React.Re
         <PublicHeader />
         <main className="flex-1">{children}</main>
         <PublicFooter />
+        <FloatingWhatsApp />
         <CookieNotice />
       </div>
     </ToastProvider>

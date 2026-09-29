@@ -267,6 +267,16 @@
 .mql-float { animation: mql-gentle-float 6s ease-in-out infinite; }
 .mql-float-delayed { animation: mql-gentle-float 7s ease-in-out -3s infinite reverse; }
 
+.floating-whatsapp { bottom: calc(1.25rem + env(safe-area-inset-bottom)); }
+.marketing-theme:has([aria-label="Cookie consent"]) .floating-whatsapp {
+  bottom: calc(10rem + env(safe-area-inset-bottom));
+}
+@media (min-width: 768px) {
+  .marketing-theme:has([aria-label="Cookie consent"]) .floating-whatsapp {
+    bottom: calc(6rem + env(safe-area-inset-bottom));
+  }
+}
+
 /* Print stylesheet for legal pages. */
 @media print {
   .no-print {
