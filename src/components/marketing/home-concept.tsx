@@ -60,10 +60,10 @@ function QuoteLink({ children, outline = false }: { children: React.ReactNode; o
 
 function PlayfulMarks() {
   return <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-    <svg className="mql-float absolute top-[10%] left-[3%] hidden size-12 text-[#f58a4a]/65 xl:block" viewBox="0 0 48 48" fill="none"><path d="M8 29c8-17 13 4 19-11s13 3 14-5" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
-    <svg className="mql-float-delayed absolute top-[9%] right-[6%] hidden size-14 text-[#ffaf4f]/70 xl:block" viewBox="0 0 56 56" fill="none"><path d="M10 36 26 20M31 37l11-13M15 13l8 3" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
-    <span className="mql-float absolute right-[2%] bottom-[13%] hidden size-9 rounded-full border-[8px] border-[#80b8b2]/55 xl:block" />
-    <svg className="mql-float-delayed absolute bottom-[12%] left-[3%] hidden size-12 text-[#ee754a]/55 xl:block" viewBox="0 0 48 48" fill="none"><path d="M6 33c10-9 12 5 20-7s9 2 16-9" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+    <svg className="mql-float absolute top-[2%] left-[2%] size-7 text-[#f58a4a]/70 sm:size-9 xl:top-[10%] xl:left-[3%] xl:size-12" viewBox="0 0 48 48" fill="none"><path d="M8 29c8-17 13 4 19-11s13 3 14-5" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+    <svg className="mql-float-delayed absolute top-[15%] right-[2%] size-7 text-[#ffaf4f]/75 sm:size-10 xl:top-[9%] xl:right-[6%] xl:size-14" viewBox="0 0 56 56" fill="none"><path d="M10 36 26 20M31 37l11-13M15 13l8 3" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+    <span className="mql-float absolute right-[2%] bottom-[4%] size-6 rounded-full border-[5px] border-[#80b8b2]/65 sm:size-8 xl:bottom-[13%] xl:size-9 xl:border-[8px]" />
+    <svg className="mql-float-delayed absolute bottom-[38%] left-[2%] size-7 text-[#ee754a]/65 sm:size-9 xl:bottom-[12%] xl:left-[3%] xl:size-12" viewBox="0 0 48 48" fill="none"><path d="M6 33c10-9 12 5 20-7s9 2 16-9" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
   </div>;
 }
 
