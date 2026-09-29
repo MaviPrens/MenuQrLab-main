@@ -15,7 +15,7 @@ export const DEFAULT_HERO_SCENES: Record<HeroSceneKind, HeroSceneConfig> = {
     { id: "golden-table", image: "/images/lifestyle/table-golden-pizzeria-v2.webp", alt: "Golden Pizza wet wipes on a pizzeria counter" },
   ] },
   magnets: { seconds: 6, items: [
-    { id: "best-fridge", image: "/images/lifestyle/fridge-best-golden-v2.webp", alt: "Best Pizza and Golden Pizza magnets on a refrigerator" },
+    { id: "golden-palace-fridge", image: "/images/lifestyle/fridge-golden-palace-v3.webp", alt: "Golden Pizza and Palace Pizza magnets on a refrigerator" },
     { id: "palace-fridge", image: "/images/lifestyle/fridge-palace-liberty-v2.webp", alt: "Palace Pizza and Liberty Pizza magnets on a refrigerator" },
     { id: "liberty-fridge", image: "/images/lifestyle/fridge-liberty-house-v2.webp", alt: "Liberty Pizza and Pizza House magnets on a refrigerator" },
   ] },
