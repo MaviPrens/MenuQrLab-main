@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
 import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
+import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 import type { HeroSceneConfig, HeroSceneKind } from "@/lib/hero-scenes";
 
