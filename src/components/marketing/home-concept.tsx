@@ -2,12 +2,12 @@ import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
 import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
-import { appConfig } from "@/lib/config/app-config";
-import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 import type { HeroSceneConfig, HeroSceneKind } from "@/lib/hero-scenes";
 
 type Props = { wipes: ShowcaseConfig; magnets: ShowcaseConfig; scenes: Record<HeroSceneKind, HeroSceneConfig>; dbBacked: boolean };
+const contactEmail = "sales@nunowipes.com";
+const contactPhone = "+19546811177";
 
 const wipeNames = [
   ["best-pizza", "Best Pizza"], ["boston-road-pizza", "Boston Road Pizza"],
@@ -50,7 +50,7 @@ const previewMagnets: ShowcaseConfig = {
 };
 
 function QuoteLink({ children, outline = false }: { children: React.ReactNode; outline?: boolean }) {
-  const href = appConfig.support.email ? `mailto:${appConfig.support.email}?subject=${encodeURIComponent("Let's talk about my business")}` : routes.marketing.contact();
+  const href = `mailto:${contactEmail}?subject=${encodeURIComponent("Let's talk about my business")}`;
   return <Link href={href} className={outline
     ? "inline-flex min-h-12 items-center justify-center gap-3 rounded-xl border border-[#f06428] px-6 text-sm font-bold text-[#ca4b1c] transition hover:bg-[#fff0e8]"
     : "inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-[#ee5a24] px-7 text-sm font-bold text-white shadow-[0_8px_18px_rgba(238,90,36,.16)] transition hover:bg-[#d44717]"}>{children}<Icon name="ArrowRight" className="size-4" aria-hidden /></Link>;
@@ -70,7 +70,7 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
           <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
           <p className="mt-5 inline-flex rounded-lg bg-[#ffe5ca] px-3 py-2 text-sm font-extrabold text-[#a9441b] sm:text-base">Production-level pricing. Agency-quality service.</p>
           <p className="mt-4 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">You put your heart into every order. We produce custom wet wipes and magnets for your brand, then help you reach more customers with digital menus and marketing. From production to promotion, we handle every step.</p>
-          <div className="mt-7 flex flex-wrap items-center gap-3"><QuoteLink>{appConfig.support.email ? "Email us for a quote" : "Request a quote"}</QuoteLink><a href={`tel:${appConfig.support.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#e9aa8b] px-6 text-sm font-bold text-[#ba4c20] transition hover:bg-white">Just a call away</a></div>
+          <div className="mt-7 flex flex-wrap items-center gap-3"><QuoteLink>Email us for a quote</QuoteLink><a href={`tel:${contactPhone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#e9aa8b] px-6 text-sm font-bold text-[#ba4c20] transition hover:bg-white">Just a call away</a></div>
           <p className="mt-4 text-sm font-semibold text-[#596777]">Tell us your goals and budget. We&apos;ll find an option that fits.</p>
           <div className="mt-9 grid max-w-[600px] grid-cols-3 gap-3 border-t border-[#e8dfd8] pt-6 text-xs font-medium text-[#435267] sm:text-sm">
             <span className="flex flex-col items-start gap-2"><span className="flex size-9 items-center justify-center rounded-full bg-white text-[#ed5b25] shadow-sm"><Icon name="Sparkles" className="size-5" aria-hidden /></span>Look like your restaurant</span>
@@ -86,7 +86,7 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
       <div className="mx-auto max-w-[1240px]">
         <div className="mb-7 grid gap-4 md:grid-cols-2 md:items-end">
           <div><p className="text-xs font-extrabold tracking-[.14em] text-[#d45120] uppercase">Custom printed wet wipes</p><h2 id="wipes-title" className="mt-2 text-[clamp(2rem,4vw,3.2rem)] leading-tight font-extrabold tracking-[-.055em]">Small detail. Big impact.</h2></div>
-          <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful detail guests actually use. Put your name in their hands with a wipe designed to feel right at home in your restaurant. Ask us about options shaped around your budget.</p><div className="mt-4"><QuoteLink outline>{appConfig.support.email ? "Email us about wet wipes" : "Ask about wet wipes"}</QuoteLink></div></div>
+          <div><p className="max-w-[520px] text-[#4b5967]">A thoughtful detail guests actually use. Put your name in their hands with a wipe designed to feel right at home in your restaurant. Ask us about options shaped around your budget.</p><div className="mt-4"><QuoteLink outline>Email us about wet wipes</QuoteLink></div></div>
         </div>
         <div className="mb-10 grid overflow-hidden rounded-[28px] border border-[#f1dfd0] bg-[#fff4e9] shadow-[0_20px_48px_rgba(77,49,29,.09)] lg:grid-cols-[1.15fr_.85fr]">
           <div className="relative aspect-[4/3] min-h-[260px] overflow-hidden sm:min-h-[360px] lg:aspect-auto">
@@ -198,6 +198,6 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
       { n: "3", icon: "PackageCheck", title: "Ready for production", body: "Once approved, we prepare the design for your order." },
     ].map(step => <div key={step.n} className="rounded-2xl border border-[#f0e7df] bg-white p-6 shadow-[0_8px_24px_rgba(26,36,46,.04)]"><div className="flex items-center gap-4"><span className="flex size-12 items-center justify-center rounded-full bg-[#fff0e5] text-xl font-extrabold text-[#e85a24]">{step.n}</span><Icon name={step.icon} className="size-7 text-[#193249]" aria-hidden /></div><h3 className="mt-5 text-lg font-extrabold">{step.title}</h3><p className="mt-2 text-sm leading-6 text-[#526171]">{step.body}</p></div>)}</div></div></section>
 
-    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Your next chapter starts here</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">More locals should know your name.</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us about your restaurant and budget. We&apos;ll suggest a mix of print and digital services that fits your goals.</p></div><div className="flex shrink-0 flex-wrap gap-3"><QuoteLink>{appConfig.support.email ? "Get a quote by email" : "Request your quote"}</QuoteLink><a href={`tel:${appConfig.support.phone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#527185] px-6 text-sm font-bold text-[#173c52] transition hover:bg-white">Call us today</a></div></div></section>
+    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Your next chapter starts here</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">More locals should know your name.</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us about your restaurant and budget. We&apos;ll suggest a mix of print and digital services that fits your goals.</p></div><div className="flex shrink-0 flex-wrap gap-3"><QuoteLink>Get a quote by email</QuoteLink><a href={`tel:${contactPhone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#527185] px-6 text-sm font-bold text-[#173c52] transition hover:bg-white">Call us today</a></div></div></section>
   </div>;
 }
