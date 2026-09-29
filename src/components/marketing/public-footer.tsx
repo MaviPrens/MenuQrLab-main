@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { footerNav } from "@/lib/navigation";
 import { routes } from "@/lib/routes";
-import { appConfig, displayValue } from "@/lib/config/app-config";
 import { BrandLogo } from "@/components/marketing/brand-logo";
 
 const COLUMNS: { heading: string; key: keyof typeof footerNav }[] = [
@@ -13,30 +12,23 @@ const COLUMNS: { heading: string; key: keyof typeof footerNav }[] = [
 export function PublicFooter() {
   const year = new Date().getFullYear();
   return (
-    <footer className="border-t border-mql-hairline-grid bg-mql-surface-alt">
-      <div className="mx-auto grid w-full max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-11 px-8 pt-[clamp(52px,5vw,76px)]">
+    <footer className="relative overflow-hidden border-t border-[#234056] bg-[#112b40] text-white">
+      <span aria-hidden className="mql-float pointer-events-none absolute -top-16 -right-12 size-44 rounded-full border-[24px] border-[#f26a31]/25 sm:size-64" />
+      <span aria-hidden className="mql-float-delayed pointer-events-none absolute bottom-14 -left-12 size-28 rounded-full border-[18px] border-[#ffbe70]/15" />
+      <div className="relative mx-auto grid w-full max-w-[1240px] grid-cols-[repeat(auto-fit,minmax(210px,1fr))] gap-11 px-8 pt-[clamp(52px,5vw,76px)]">
         <div>
-          <BrandLogo size="footer" className="mb-[18px]" />
-          <p className="mb-[22px] max-w-[26em] font-mql-body text-[.9rem] leading-[1.6] text-mql-secondary">
-            Professionally managed digital menus and QR infrastructure for modern restaurants.
+          <BrandLogo size="footer" className="mb-[18px] [&>span:first-child]:text-white [&>span:last-child]:bg-white/30" />
+          <p className="mb-[22px] max-w-[26em] font-mql-body text-[.9rem] leading-[1.6] text-[#d3e1e9]">
+            Custom products and practical marketing that help local restaurants stay remembered.
           </p>
-          <p className="mb-[6px] font-mql-body text-[.82rem] leading-[1.5] text-mql-muted">
-            Support: {displayValue(appConfig.support.email)}
-          </p>
-          <a
-            href="sms:+19546811177"
-            className="inline-block font-mql-mono text-base font-medium text-mql-ink transition-colors hover:text-mql-text-accent"
-          >
-            (954) 681-1177
-          </a>
-          <p className="mt-[5px] font-mql-body text-[.78rem] leading-[1.5] text-mql-muted">
-            Text only — no calls
-          </p>
+          <a href="mailto:sales@nunowipes.com" className="block break-all font-mql-body text-sm text-[#ffd8b5] underline-offset-4 hover:underline">sales@nunowipes.com</a>
+          <a href="tel:+19546811177" className="mt-2 block font-mql-mono text-sm text-[#ffd8b5] underline-offset-4 hover:underline">(954) 681-1177</a>
+          <a href="https://wa.me/19546811177" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block font-mql-body text-sm text-[#ffd8b5] underline-offset-4 hover:underline">Chat on WhatsApp ↗</a>
         </div>
 
         {COLUMNS.map((col) => (
           <div key={col.key}>
-            <h2 className="mb-[18px] font-mql-mono text-[10.5px] font-medium tracking-[0.1em] text-mql-text-accent uppercase">
+            <h2 className="mb-[18px] font-mql-mono text-[10.5px] font-medium tracking-[0.1em] text-[#ffb983] uppercase">
               {col.heading}
             </h2>
             <ul className="flex flex-col gap-[11px]">
@@ -44,7 +36,7 @@ export function PublicFooter() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="font-mql-body text-[.9rem] text-mql-secondary transition-colors hover:text-mql-ink"
+                    className="font-mql-body text-[.9rem] text-[#d3e1e9] transition-colors hover:text-white hover:underline"
                   >
                     {item.label}
                   </Link>
@@ -55,27 +47,27 @@ export function PublicFooter() {
         ))}
       </div>
 
-      <div className="mx-auto w-full max-w-[1240px] px-8">
-        <div className="mt-[clamp(40px,4vw,60px)] flex flex-wrap items-center gap-x-[26px] gap-y-[10px] border-t border-mql-hairline-grid py-[22px] pb-[30px]">
-          <span className="text-[.78rem] tracking-[0.02em] text-mql-muted">
+      <div className="relative mx-auto w-full max-w-[1240px] px-8">
+        <div className="mt-[clamp(40px,4vw,60px)] flex flex-wrap items-center gap-x-[26px] gap-y-[10px] border-t border-white/15 py-[22px] pb-[30px]">
+          <span className="text-[.78rem] tracking-[0.02em] text-[#a9c0ce]">
             © {year} MenuQrLab. All rights reserved.
           </span>
           <a
             href="https://paksoft.com.tr"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex gap-[5px] text-[.78rem] text-mql-muted transition-colors hover:text-mql-ink"
+            className="inline-flex gap-[5px] text-[.78rem] text-[#a9c0ce] transition-colors hover:text-white"
           >
             <span>Developed by</span>
-            <span className="font-semibold text-mql-text-accent">PakSoft</span>
+            <span className="font-semibold text-[#ffb983]">PakSoft</span>
           </a>
           <span className="min-w-[20px] flex-1" aria-hidden />
-          <span className="text-[.78rem] tracking-[0.02em] text-mql-muted">
-            Managed service · No restaurant-owner accounts
+          <span className="text-[.78rem] tracking-[0.02em] text-[#ffb983]">
+            Good restaurants stay remembered.
           </span>
           <Link
             href={routes.admin.login()}
-            className="border border-[rgba(20,20,20,.24)] px-[13px] py-[9px] font-mql-mono text-[9.5px] font-medium tracking-[0.1em] text-mql-text-accent uppercase transition-colors hover:border-mql-ink hover:text-mql-ink"
+            className="border border-white/30 px-[13px] py-[9px] font-mql-mono text-[9.5px] font-medium tracking-[0.1em] text-white uppercase transition-colors hover:border-white"
           >
             Staff access
           </Link>

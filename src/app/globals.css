@@ -259,6 +259,14 @@
   }
 }
 
+@keyframes mql-gentle-float {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+  50% { transform: translate3d(0, -9px, 0) rotate(5deg); }
+}
+
+.mql-float { animation: mql-gentle-float 6s ease-in-out infinite; }
+.mql-float-delayed { animation: mql-gentle-float 7s ease-in-out -3s infinite reverse; }
+
 /* Print stylesheet for legal pages. */
 @media print {
   .no-print {

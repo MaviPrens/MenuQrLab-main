@@ -41,9 +41,17 @@ export function HeroSceneCarousel({ kind, config, dbBacked, className = "", imag
   if (visibleConfig.items.length === 0) return <div className={`bg-[#e5e7e5] ${className}`} />;
 
   return <div className={`relative overflow-hidden ${className}`} aria-label={`${kind} in everyday places`}>
-    {visibleConfig.items.map((scene, index) => <img key={scene.id} src={scene.image}
-      alt={index === active ? scene.alt : ""} aria-hidden={index !== active}
-      className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-700 ${imageClassName} ${index === active ? "opacity-100" : "opacity-0"}`}
-      loading={index === 0 ? "eager" : "lazy"} />)}
+    {visibleConfig.items.map((scene, index) => <div key={scene.id}
+      aria-hidden={index !== active}
+      className={`absolute inset-0 transition-opacity duration-700 ${index === active ? "opacity-100" : "pointer-events-none opacity-0"}`}>
+      <img src={scene.image} alt={scene.magnets?.length ? "" : index === active ? scene.alt : ""}
+        className={`h-full w-full object-cover ${imageClassName}`} loading={index === 0 ? "eager" : "lazy"} />
+      {scene.magnets?.length ? <div role="img" aria-label={index === active ? scene.alt : undefined}
+        className="absolute top-[24%] left-[20%] grid w-[72%] grid-cols-2 gap-x-[9%] gap-y-3 sm:gap-y-4">
+        {scene.magnets.map(magnet => <img key={magnet.image} src={magnet.image} alt=""
+          className="aspect-[3/2] w-full rounded-[3px] bg-white object-cover shadow-[1px_5px_8px_rgba(18,22,25,.42),0_0_1px_rgba(0,0,0,.55)]"
+          loading="lazy" />)}
+      </div> : null}
+    </div>)}
   </div>;
 }

@@ -58,6 +58,15 @@ function QuoteLink({ children, outline = false }: { children: React.ReactNode; o
     : "inline-flex min-h-12 items-center justify-center gap-3 rounded-xl bg-[#ee5a24] px-7 text-sm font-bold text-white shadow-[0_8px_18px_rgba(238,90,36,.16)] transition hover:bg-[#d44717]"}>{children}<Icon name="ArrowRight" className="size-4" aria-hidden /></Link>;
 }
 
+function PlayfulMarks() {
+  return <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+    <svg className="mql-float absolute top-[10%] left-[3%] hidden size-12 text-[#f58a4a]/65 xl:block" viewBox="0 0 48 48" fill="none"><path d="M8 29c8-17 13 4 19-11s13 3 14-5" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+    <svg className="mql-float-delayed absolute top-[9%] right-[6%] hidden size-14 text-[#ffaf4f]/70 xl:block" viewBox="0 0 56 56" fill="none"><path d="M10 36 26 20M31 37l11-13M15 13l8 3" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+    <span className="mql-float absolute right-[2%] bottom-[13%] hidden size-9 rounded-full border-[8px] border-[#80b8b2]/55 xl:block" />
+    <svg className="mql-float-delayed absolute bottom-[12%] left-[3%] hidden size-12 text-[#ee754a]/55 xl:block" viewBox="0 0 48 48" fill="none"><path d="M6 33c10-9 12 5 20-7s9 2 16-9" stroke="currentColor" strokeWidth="6" strokeLinecap="round" /></svg>
+  </div>;
+}
+
 export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
   const displayedWipes = wipes.items.length === 1 && wipes.items[0]?.id === "village-pizza"
     ? previewWipes : wipes;
@@ -67,7 +76,8 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
     <BackToTop />
     <section className="relative bg-[radial-gradient(circle_at_82%_22%,#fff0dc_0,transparent_38%),linear-gradient(135deg,#fffaf5,#fff6eb)] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
       <span className="pointer-events-none absolute -top-24 right-[20%] size-64 rounded-full bg-[#ffe9d8]/50 blur-3xl" aria-hidden />
-      <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
+      <PlayfulMarks />
+      <div className="relative mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
         <div>
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-extrabold tracking-[.13em] text-[#c64b1d] uppercase shadow-[0_5px_18px_rgba(127,69,30,.07)]"><span className="size-2 rounded-full bg-[#fa631d]" />Made for local restaurants</p>
           <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
@@ -201,6 +211,6 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
       { n: "3", icon: "PackageCheck", title: "Ready for production", body: "Once approved, we prepare the design for your order." },
     ].map(step => <div key={step.n} className="rounded-2xl border border-[#f0e7df] bg-white p-6 shadow-[0_8px_24px_rgba(26,36,46,.04)]"><div className="flex items-center gap-4"><span className="flex size-12 items-center justify-center rounded-full bg-[#fff0e5] text-xl font-extrabold text-[#e85a24]">{step.n}</span><Icon name={step.icon} className="size-7 text-[#193249]" aria-hidden /></div><h3 className="mt-5 text-lg font-extrabold">{step.title}</h3><p className="mt-2 text-sm leading-6 text-[#526171]">{step.body}</p></div>)}</div></div></section>
 
-    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><div><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Your next chapter starts here</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">More locals should know your name.</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us about your restaurant and budget. We&apos;ll suggest a mix of print and digital services that fits your goals.</p></div><div className="flex shrink-0 flex-wrap gap-3"><QuoteLink>Get a quote by email</QuoteLink><a href={`tel:${contactPhone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#527185] px-6 text-sm font-bold text-[#173c52] transition hover:bg-white">Call us today</a></div></div></section>
+    <section className="px-5 py-16 sm:px-8 sm:py-20"><div className="relative mx-auto flex max-w-[1240px] flex-col items-start justify-between gap-7 overflow-hidden rounded-[24px] bg-[#e8f2f5] p-8 sm:p-12 lg:flex-row lg:items-center"><span aria-hidden className="mql-float pointer-events-none absolute -top-10 right-[25%] size-24 rounded-full border-[13px] border-[#f7ad71]/40" /><span aria-hidden className="mql-float-delayed pointer-events-none absolute -bottom-10 left-[40%] size-24 rounded-full border-[13px] border-[#8bc0b8]/45" /><div className="relative"><p className="text-xs font-extrabold tracking-[.14em] text-[#cb4c1f] uppercase">Your next chapter starts here</p><h2 className="mt-2 max-w-[670px] text-[clamp(2rem,4vw,3.4rem)] leading-tight font-extrabold tracking-[-.06em]">More locals should know your name.</h2><p className="mt-3 max-w-[620px] text-[#435466]">Tell us about your restaurant and budget. We&apos;ll suggest a mix of print and digital services that fits your goals.</p></div><div className="relative flex shrink-0 flex-wrap gap-3"><QuoteLink>Get a quote by email</QuoteLink><a href={`tel:${contactPhone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#527185] px-6 text-sm font-bold text-[#173c52] transition hover:bg-white">Call us today</a></div></div></section>
   </div>;
 }

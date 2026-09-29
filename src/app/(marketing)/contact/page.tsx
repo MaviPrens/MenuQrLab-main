@@ -4,7 +4,7 @@ import { SectionDivider } from "@/components/shared/section-divider";
 import { Card } from "@/components/ui/card";
 import { Icon } from "@/components/shared/icon";
 import { EnquiryForm } from "@/components/forms/enquiry-form";
-import { appConfig, displayValue } from "@/lib/config/app-config";
+import { appConfig } from "@/lib/config/app-config";
 
 export const metadata: Metadata = {
   title: `Contact & Enquiry · ${appConfig.appName}`,
@@ -97,15 +97,15 @@ export default async function ContactPage({
                   <ul className="text-small text-text-secondary space-y-2">
                     <li className="flex items-center gap-2">
                       <Icon name="Mail" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.email)}
+                      <a href="mailto:sales@nunowipes.com" className="break-all underline-offset-2 hover:text-primary hover:underline">sales@nunowipes.com</a>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon name="Phone" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.phone)}
+                      <a href="tel:+19546811177" className="underline-offset-2 hover:text-primary hover:underline">(954) 681-1177</a>
                     </li>
                     <li className="flex items-center gap-2">
                       <Icon name="MessageCircle" className="text-primary size-4" aria-hidden />
-                      {displayValue(appConfig.support.whatsapp)}
+                      <a href="https://wa.me/19546811177" target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-primary hover:underline">Message us on WhatsApp</a>
                     </li>
                   </ul>
                   <p className="text-text-tertiary text-xs">

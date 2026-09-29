@@ -1,5 +1,5 @@
 export type HeroSceneKind = "wipes" | "magnets" | "fresheners";
-export type HeroScene = { id: string; image: string; alt: string };
+export type HeroScene = { id: string; image: string; alt: string; magnets?: { image: string; alt: string }[] };
 export type HeroSceneConfig = { seconds: number; items: HeroScene[] };
 
 export const HERO_SCENE_SECTIONS: Record<HeroSceneKind, string> = {
@@ -15,9 +15,24 @@ export const DEFAULT_HERO_SCENES: Record<HeroSceneKind, HeroSceneConfig> = {
     { id: "golden-table", image: "/images/lifestyle/table-golden-pizzeria-v2.webp", alt: "Golden Pizza wet wipes on a pizzeria counter" },
   ] },
   magnets: { seconds: 6, items: [
-    { id: "golden-palace-fridge", image: "/images/lifestyle/fridge-golden-palace-v3.webp", alt: "Golden Pizza and Palace Pizza magnets on a refrigerator" },
-    { id: "palace-fridge", image: "/images/lifestyle/fridge-palace-liberty-v2.webp", alt: "Palace Pizza and Liberty Pizza magnets on a refrigerator" },
-    { id: "liberty-fridge", image: "/images/lifestyle/fridge-liberty-house-v2.webp", alt: "Liberty Pizza and Pizza House magnets on a refrigerator" },
+    { id: "four-magnets-a", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Palace Pizza, Liberty Pizza, Best Pizza and Golden Pizza magnets on a refrigerator", magnets: [
+      { image: "/images/showcase/magnet-fronts/palace-pizza.webp", alt: "Palace Pizza" },
+      { image: "/images/showcase/magnet-fronts/liberty-pizza.webp", alt: "Liberty Pizza" },
+      { image: "/images/showcase/magnet-fronts/best-pizza.webp", alt: "Best Pizza" },
+      { image: "/images/showcase/magnet-fronts/golden-pizza.webp", alt: "Golden Pizza" },
+    ] },
+    { id: "four-magnets-b", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Empire Pizza, Rinaldi’s Pizza, Parker Pizza and Pizza House magnets on a refrigerator", magnets: [
+      { image: "/images/showcase/magnet-fronts/empire-pizza.webp", alt: "Empire Pizza" },
+      { image: "/images/showcase/magnet-fronts/rinaldis-pizza.webp", alt: "Rinaldi’s Pizza" },
+      { image: "/images/showcase/magnet-fronts/parker-pizza.webp", alt: "Parker Pizza" },
+      { image: "/images/showcase/magnet-fronts/pizza-house.webp", alt: "Pizza House" },
+    ] },
+    { id: "four-magnets-c", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Village Pizza, Husky Pizza, Pizza Works and Boston Road Pizza magnets on a refrigerator", magnets: [
+      { image: "/images/showcase/magnet-fronts/village-pizza.webp", alt: "Village Pizza" },
+      { image: "/images/showcase/magnet-fronts/husky-coventry.webp", alt: "Husky Pizza" },
+      { image: "/images/showcase/magnet-fronts/pizza-works.webp", alt: "Pizza Works" },
+      { image: "/images/showcase/magnet-fronts/boston-road.webp", alt: "Boston Road Pizza" },
+    ] },
   ] },
   fresheners: { seconds: 7, items: [
     { id: "rinaldis-car", image: "/images/lifestyle/car-product.webp", alt: "Rinaldi's Pizza custom air freshener in a car" },
