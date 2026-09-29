@@ -15,19 +15,19 @@ export const DEFAULT_HERO_SCENES: Record<HeroSceneKind, HeroSceneConfig> = {
     { id: "golden-table", image: "/images/lifestyle/table-golden-pizzeria-v2.webp", alt: "Golden Pizza wet wipes on a pizzeria counter" },
   ] },
   magnets: { seconds: 6, items: [
-    { id: "four-magnets-a", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Palace Pizza, Liberty Pizza, Best Pizza and Golden Pizza magnets on a refrigerator", magnets: [
+    { id: "four-magnets-a", image: "/images/lifestyle/fridge-closeup-blank.webp", alt: "Palace Pizza, Liberty Pizza, Best Pizza and Golden Pizza magnets on a refrigerator", magnets: [
       { image: "/images/showcase/magnet-fronts/palace-pizza.webp", alt: "Palace Pizza" },
       { image: "/images/showcase/magnet-fronts/liberty-pizza.webp", alt: "Liberty Pizza" },
       { image: "/images/showcase/magnet-fronts/best-pizza.webp", alt: "Best Pizza" },
       { image: "/images/showcase/magnet-fronts/golden-pizza.webp", alt: "Golden Pizza" },
     ] },
-    { id: "four-magnets-b", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Empire Pizza, Rinaldi’s Pizza, Parker Pizza and Pizza House magnets on a refrigerator", magnets: [
+    { id: "four-magnets-b", image: "/images/lifestyle/fridge-closeup-blank.webp", alt: "Empire Pizza, Rinaldi’s Pizza, Parker Pizza and Pizza House magnets on a refrigerator", magnets: [
       { image: "/images/showcase/magnet-fronts/empire-pizza.webp", alt: "Empire Pizza" },
       { image: "/images/showcase/magnet-fronts/rinaldis-pizza.webp", alt: "Rinaldi’s Pizza" },
       { image: "/images/showcase/magnet-fronts/parker-pizza.webp", alt: "Parker Pizza" },
       { image: "/images/showcase/magnet-fronts/pizza-house.webp", alt: "Pizza House" },
     ] },
-    { id: "four-magnets-c", image: "/images/lifestyle/fridge-blank-kitchen.webp", alt: "Village Pizza, Husky Pizza, Pizza Works and Boston Road Pizza magnets on a refrigerator", magnets: [
+    { id: "four-magnets-c", image: "/images/lifestyle/fridge-closeup-blank.webp", alt: "Village Pizza, Husky Pizza, Pizza Works and Boston Road Pizza magnets on a refrigerator", magnets: [
       { image: "/images/showcase/magnet-fronts/village-pizza.webp", alt: "Village Pizza" },
       { image: "/images/showcase/magnet-fronts/husky-coventry.webp", alt: "Husky Pizza" },
       { image: "/images/showcase/magnet-fronts/pizza-works.webp", alt: "Pizza Works" },

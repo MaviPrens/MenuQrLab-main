@@ -47,7 +47,7 @@ export function HeroSceneCarousel({ kind, config, dbBacked, className = "", imag
       <img src={scene.image} alt={scene.magnets?.length ? "" : index === active ? scene.alt : ""}
         className={`h-full w-full object-cover ${imageClassName}`} loading={index === 0 ? "eager" : "lazy"} />
       {scene.magnets?.length ? <div role="img" aria-label={index === active ? scene.alt : undefined}
-        className="absolute top-[24%] left-[20%] grid w-[72%] grid-cols-2 gap-x-[9%] gap-y-3 sm:gap-y-4">
+        className="absolute top-[22%] left-[20%] grid w-[76%] grid-cols-2 gap-x-[7%] gap-y-3 sm:gap-y-4">
         {scene.magnets.map(magnet => <img key={magnet.image} src={magnet.image} alt=""
           className="aspect-[3/2] w-full rounded-[3px] bg-white object-cover shadow-[1px_5px_8px_rgba(18,22,25,.42),0_0_1px_rgba(0,0,0,.55)]"
           loading="lazy" />)}
