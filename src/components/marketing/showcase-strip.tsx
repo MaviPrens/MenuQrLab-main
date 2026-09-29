@@ -11,8 +11,10 @@ type Props = { config: ShowcaseConfig; kind: ShowcaseKind; dbBacked: boolean; ti
 export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Props) {
   const [visibleConfig, setVisibleConfig] = useState(config);
   const [manual, setManual] = useState(false);
+  const [activeDot, setActiveDot] = useState(0);
   const [repeatCount, setRepeatCount] = useState(8);
   const viewport = useRef<HTMLDivElement>(null);
+  const track = useRef<HTMLDivElement>(null);
   const firstGroup = useRef<HTMLDivElement>(null);
   const resumeTimer = useRef<number | null>(null);
 
@@ -30,6 +32,26 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
   useEffect(() => () => {
     if (resumeTimer.current !== null) window.clearTimeout(resumeTimer.current);
   }, []);
+
+  const dotCount = Math.min(8, visibleConfig.items.length);
+  useEffect(() => {
+    if (dotCount < 2) return;
+    let frame = 0;
+    const sync = () => {
+      const animation = track.current?.getAnimations()[0];
+      const time = animation?.currentTime;
+      if (typeof time === "number" && visibleConfig.seconds > 0) {
+        const progress = ((time % (visibleConfig.seconds * 1000)) + visibleConfig.seconds * 1000) % (visibleConfig.seconds * 1000);
+        setActiveDot(current => {
+          const next = Math.min(dotCount - 1, Math.floor(progress / (visibleConfig.seconds * 1000) * dotCount));
+          return current === next ? current : next;
+        });
+      }
+      frame = requestAnimationFrame(sync);
+    };
+    frame = requestAnimationFrame(sync);
+    return () => cancelAnimationFrame(frame);
+  }, [dotCount, visibleConfig.seconds]);
 
   useEffect(() => {
     const container = viewport.current;
@@ -64,7 +86,24 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
     setManual(true);
     const first = viewport.current?.querySelector<HTMLElement>(".showcase-product");
     const gap = first?.parentElement ? parseFloat(getComputedStyle(first.parentElement).gap) || 0 : 0;
-    viewport.current?.scrollBy({ left: direction * ((first?.offsetWidth ?? 280) + gap), behavior: "smooth" });
+    const animation = track.current?.getAnimations()[0];
+    const groupWidth = firstGroup.current?.getBoundingClientRect().width ?? 0;
+    if (animation && typeof animation.currentTime === "number" && groupWidth > 0) {
+      animation.currentTime += direction * ((first?.offsetWidth ?? 280) + gap) / groupWidth * visibleConfig.seconds * 1000;
+    } else {
+      viewport.current?.scrollBy({ left: direction * ((first?.offsetWidth ?? 280) + gap), behavior: "smooth" });
+    }
+    if (resumeTimer.current !== null) window.clearTimeout(resumeTimer.current);
+    resumeTimer.current = window.setTimeout(() => setManual(false), 4500);
+  };
+
+  const goToDot = (index: number) => {
+    setManual(true);
+    setActiveDot(index);
+    viewport.current?.scrollTo({ left: 0 });
+    const animation = track.current?.getAnimations()[0];
+    if (animation) animation.currentTime = index / dotCount * visibleConfig.seconds * 1000;
+    else viewport.current?.scrollTo({ left: (firstGroup.current?.getBoundingClientRect().width ?? 0) * index / dotCount, behavior: "smooth" });
     if (resumeTimer.current !== null) window.clearTimeout(resumeTimer.current);
     resumeTimer.current = window.setTimeout(() => setManual(false), 4500);
   };
@@ -93,7 +132,7 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
           if (resumeTimer.current !== null) window.clearTimeout(resumeTimer.current);
           resumeTimer.current = window.setTimeout(() => setManual(false), 4500);
         }}>
-        <div className="showcase-track flex w-max" data-manual={manual}
+        <div ref={track} className="showcase-track flex w-max" data-manual={manual}
           style={{ "--showcase-duration": `${visibleConfig.seconds}s` } as CSSProperties}>
           {[0, 1].map((copy) => (
             <div key={copy} ref={copy === 0 ? firstGroup : undefined}
@@ -116,9 +155,13 @@ export function ShowcaseStrip({ config, kind, dbBacked, title, description }: Pr
           ))}
         </div>
       </div>
-      <div className="mt-5 flex justify-center gap-2" aria-hidden="true">
-        {visibleConfig.items.slice(0, 8).map((item, index) => (
-          <span key={item.id} className={`size-2 rounded-full ${index === 0 ? "bg-mql-text-accent" : "bg-mql-hairline"}`} />
+      <div className="mt-3 flex justify-center gap-0.5" aria-label={`${title} positions`}>
+        {Array.from({ length: dotCount }, (_, index) => (
+          <button key={index} type="button" onClick={() => goToDot(index)}
+            aria-label={`Go to ${title} position ${index + 1}`} aria-current={activeDot === index ? "true" : undefined}
+            className="flex size-8 items-center justify-center rounded-full focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-mql-text-accent">
+            <span className={`size-2 rounded-full transition-colors ${activeDot === index ? "bg-mql-text-accent" : "bg-mql-hairline"}`} />
+          </button>
         ))}
       </div>
       <style jsx>{`

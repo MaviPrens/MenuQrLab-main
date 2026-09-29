@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
 import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
+import { BackToTop } from "@/components/marketing/back-to-top";
 import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 import type { HeroSceneConfig, HeroSceneKind } from "@/lib/hero-scenes";
@@ -63,6 +64,7 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
   const displayedMagnets = magnets.items.length === 1 && magnets.items[0]?.id === "best-pizza"
     ? previewMagnets : magnets;
   return <div className="overflow-hidden bg-white font-[family-name:var(--font-manrope)] text-[#16283c]">
+    <BackToTop />
     <section className="relative bg-[radial-gradient(circle_at_82%_22%,#fff0dc_0,transparent_38%),linear-gradient(135deg,#fffaf5,#fff6eb)] px-5 py-12 sm:px-8 sm:py-18 lg:py-24">
       <span className="pointer-events-none absolute -top-24 right-[20%] size-64 rounded-full bg-[#ffe9d8]/50 blur-3xl" aria-hidden />
       <div className="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.92fr_1.08fr] lg:gap-14">
@@ -91,7 +93,7 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
         </div>
         <div className="mb-10 grid overflow-hidden rounded-[28px] border border-[#f1dfd0] bg-[#fff4e9] shadow-[0_20px_48px_rgba(77,49,29,.09)] lg:grid-cols-[1.15fr_.85fr]">
           <div className="relative aspect-[4/3] min-h-[260px] overflow-hidden sm:min-h-[360px] lg:aspect-auto">
-            <img src="/images/lifestyle/table-empire-product.webp" alt="Empire Pizza custom wet wipe packets on a pizzeria table" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+            <img src="/images/lifestyle/table-parker-feature-v2.webp" alt="Parker Pizza custom wet wipe packets on a pizzeria counter" className="absolute inset-0 h-full w-full object-cover" loading="lazy" />
           </div>
           <div className="flex flex-col justify-center p-6 sm:p-10 lg:p-12">
             <p className="text-xs font-extrabold tracking-[.15em] text-[#c74d1e] uppercase">A detail worth keeping</p>

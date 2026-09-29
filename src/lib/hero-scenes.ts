@@ -10,14 +10,14 @@ export const HERO_SCENE_SECTIONS: Record<HeroSceneKind, string> = {
 
 export const DEFAULT_HERO_SCENES: Record<HeroSceneKind, HeroSceneConfig> = {
   wipes: { seconds: 5, items: [
-    { id: "rinaldis-table", image: "/images/lifestyle/table-rinaldis-product.webp", alt: "Rinaldi's Pizza custom wet wipe on a restaurant table" },
-    { id: "empire-table", image: "/images/lifestyle/table-empire-product.webp", alt: "Empire Pizza custom wet wipe in a pizzeria" },
-    { id: "golden-table", image: "/images/lifestyle/table-golden-product.webp", alt: "Golden Pizza custom wet wipe in a pizzeria" },
+    { id: "rinaldis-table", image: "/images/lifestyle/table-rinaldis-pizzeria-v2.webp", alt: "Rinaldi's Pizza wet wipes on a pizzeria counter" },
+    { id: "empire-table", image: "/images/lifestyle/table-empire-pizzeria-v2.webp", alt: "Empire Pizza wet wipes on a pizzeria counter" },
+    { id: "golden-table", image: "/images/lifestyle/table-golden-pizzeria-v2.webp", alt: "Golden Pizza wet wipes on a pizzeria counter" },
   ] },
   magnets: { seconds: 6, items: [
-    { id: "best-fridge", image: "/images/lifestyle/fridge-product.webp", alt: "Best Pizza magnet on a refrigerator" },
-    { id: "palace-fridge", image: "/images/lifestyle/fridge-palace-product.webp", alt: "Palace Pizza magnet on a refrigerator" },
-    { id: "liberty-fridge", image: "/images/lifestyle/fridge-liberty-product.webp", alt: "Liberty Pizza magnet on a refrigerator" },
+    { id: "best-fridge", image: "/images/lifestyle/fridge-best-golden-v2.webp", alt: "Best Pizza and Golden Pizza magnets on a refrigerator" },
+    { id: "palace-fridge", image: "/images/lifestyle/fridge-palace-liberty-v2.webp", alt: "Palace Pizza and Liberty Pizza magnets on a refrigerator" },
+    { id: "liberty-fridge", image: "/images/lifestyle/fridge-liberty-house-v2.webp", alt: "Liberty Pizza and Pizza House magnets on a refrigerator" },
   ] },
   fresheners: { seconds: 7, items: [
     { id: "rinaldis-car", image: "/images/lifestyle/car-product.webp", alt: "Rinaldi's Pizza custom air freshener in a car" },
