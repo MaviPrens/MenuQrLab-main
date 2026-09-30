@@ -46,7 +46,7 @@ export function PublicHeader() {
             href={routes.marketing.contact()}
             className="border border-mql-ink bg-mql-ink px-[22px] py-[14px] font-mql-body text-[11px] font-bold tracking-[0.17em] text-white uppercase transition-colors hover:border-mql-text-accent hover:bg-mql-text-accent"
           >
-            Request a Quote
+            Contact Us Now!
           </Link>
         </nav>
 
@@ -81,7 +81,7 @@ export function PublicHeader() {
                 onClick={() => setOpen(false)}
                 className="border border-mql-ink bg-mql-ink px-[22px] py-[14px] text-center font-mql-body text-[11px] font-bold tracking-[0.17em] text-white uppercase"
               >
-                Request a Quote
+                Contact Us Now!
               </Link>
               <LanguageSelector className="px-1 pt-1" />
             </div>

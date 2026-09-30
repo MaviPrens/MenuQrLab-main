@@ -3,6 +3,8 @@ import { Icon } from "@/components/shared/icon";
 import { ShowcaseStrip } from "@/components/marketing/showcase-strip";
 import { LifestyleScenes } from "@/components/marketing/lifestyle-scenes";
 import { BackToTop } from "@/components/marketing/back-to-top";
+import { DirectContactCard } from "@/components/marketing/direct-contact-card";
+import { FlyerCarousel } from "@/components/marketing/flyer-carousel";
 import { routes } from "@/lib/routes";
 import type { ShowcaseConfig } from "@/lib/showcase";
 import type { HeroSceneConfig, HeroSceneKind } from "@/lib/hero-scenes";
@@ -82,7 +84,7 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
           <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-[11px] font-extrabold tracking-[.13em] text-[#c64b1d] uppercase shadow-[0_5px_18px_rgba(127,69,30,.07)]"><span className="size-2 rounded-full bg-[#fa631d]" />Made for local restaurants</p>
           <h1 className="max-w-[680px] text-[clamp(3rem,5vw,4.25rem)] leading-[1.04] font-extrabold tracking-[-.065em]">Your brand,<br /><span className="text-[#ed5b25]">out in the world.</span></h1>
           <p className="mt-5 inline-flex rounded-lg bg-[#ffe5ca] px-3 py-2 text-sm font-extrabold text-[#a9441b] sm:text-base">Production-level pricing. Agency-quality service.</p>
-          <p className="mt-4 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">You put your heart into every order. We produce custom wet wipes and magnets for your brand, then help you reach more customers with digital menus and marketing. From production to promotion, we handle every step.</p>
+          <p className="mt-4 max-w-[35rem] text-base leading-7 text-[#4c5967] sm:text-lg sm:leading-8">You put your heart into every order. MenuQrLab directly manufactures every product featured on this site, from custom wet wipes and magnets to print pieces for your brand. We also help you reach more customers with digital menus and marketing. From production to promotion, we handle every step.</p>
           <div className="mt-7 flex flex-wrap items-center gap-3"><QuoteLink>Email us for a quote</QuoteLink><a href={`tel:${contactPhone}`} className="inline-flex min-h-12 items-center justify-center rounded-xl border border-[#e9aa8b] px-6 text-sm font-bold text-[#ba4c20] transition hover:bg-white">Just a call away</a></div>
           <p className="mt-4 text-sm font-semibold text-[#596777]">Tell us your goals and budget. We&apos;ll find an option that fits.</p>
           <div className="mt-9 grid max-w-[600px] grid-cols-3 gap-3 border-t border-[#e8dfd8] pt-6 text-xs font-medium text-[#435267] sm:text-sm">
@@ -202,6 +204,22 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
           <div className="mt-7"><QuoteLink>Ask about air fresheners</QuoteLink></div>
           <div className="mt-9 grid max-w-[560px] grid-cols-3 gap-3 border-t border-[#ccddd8] pt-5 text-xs font-semibold text-[#4c6867] sm:text-sm"><span>Made for your brand</span><span>A daily reminder</span><span>Easy to share</span></div>
         </div>
+      </div>
+    </section>
+
+    <section className="bg-[#fff8f2] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="flyer-title">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-[1.35fr_.8fr] lg:gap-14">
+        <div className="grid items-center gap-8 sm:grid-cols-[.9fr_1.1fr] sm:gap-6">
+          <div>
+            <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#c74e20]">Custom printed flyers</p>
+            <h2 id="flyer-title" className="mt-3 text-[clamp(2.15rem,4vw,3.8rem)] font-extrabold leading-[1.08] tracking-[-.06em]">A great offer,<br /><span className="text-[#e95b27]">in their hands.</span></h2>
+            <p className="mt-5 max-w-[440px] text-base leading-7 text-[#4b5e68]">Put your menu and special offers where your neighbors can see them. We take your flyer from design through printing, with production-level pricing and agency-quality creative work tailored to your business.</p>
+            <p className="mt-4 text-sm font-bold text-[#ad4c27]">Your brand. Your neighborhood. A plan that fits your budget.</p>
+            <div className="mt-6"><QuoteLink>Ask about printed flyers</QuoteLink></div>
+          </div>
+          <div className="mx-auto w-full max-w-[430px]"><FlyerCarousel /></div>
+        </div>
+        <aside aria-label="Contact MenuQrLab directly"><DirectContactCard /></aside>
       </div>
     </section>
 

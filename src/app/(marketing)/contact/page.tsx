@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Container } from "@/components/shared/container";
 import { SectionDivider } from "@/components/shared/section-divider";
 import { Card } from "@/components/ui/card";
-import { Icon } from "@/components/shared/icon";
 import { EnquiryForm } from "@/components/forms/enquiry-form";
 import { appConfig } from "@/lib/config/app-config";
+import { DirectContactCard } from "@/components/marketing/direct-contact-card";
 
 export const metadata: Metadata = {
   title: `Contact & Enquiry · ${appConfig.appName}`,
@@ -70,6 +70,7 @@ export default async function ContactPage({
           {/* Sidebar */}
           <aside className="lg:col-span-1">
             <div className="space-y-6 lg:sticky lg:top-24">
+              <DirectContactCard />
               <Card className="bg-navy text-white">
                 <div className="space-y-5 p-6">
                   <h2 className="font-heading text-h3 text-white">What happens next?</h2>
@@ -89,27 +90,6 @@ export default async function ContactPage({
                 </div>
               </Card>
 
-              <Card>
-                <div className="space-y-3 p-6">
-                  <h2 className="font-heading text-h3 text-text-primary">
-                    Prefer to reach out directly?
-                  </h2>
-                  <ul className="text-small text-text-secondary space-y-2">
-                    <li className="flex items-center gap-2">
-                      <Icon name="Mail" className="text-primary size-4" aria-hidden />
-                      <a href="mailto:sales@nunowipes.com" className="break-all underline-offset-2 hover:text-primary hover:underline">sales@nunowipes.com</a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="Phone" className="text-primary size-4" aria-hidden />
-                      <a href="tel:+19546811177" className="underline-offset-2 hover:text-primary hover:underline">(954) 681-1177</a>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <Icon name="MessageCircle" className="text-primary size-4" aria-hidden />
-                      <a href="https://wa.me/19546811177" target="_blank" rel="noopener noreferrer" className="underline-offset-2 hover:text-primary hover:underline">Message us on WhatsApp</a>
-                    </li>
-                  </ul>
-                </div>
-              </Card>
             </div>
           </aside>
         </div>
