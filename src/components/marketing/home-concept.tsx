@@ -208,11 +208,11 @@ export function HomeConcept({ wipes, magnets, scenes, dbBacked }: Props) {
     </section>
 
     <section className="bg-[#fff8f2] px-5 py-16 sm:px-8 sm:py-20" aria-labelledby="flyer-title">
-      <div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-[1.35fr_.8fr] lg:gap-14">
-        <div className="grid items-center gap-8 sm:grid-cols-[.9fr_1.1fr] sm:gap-6">
+      <div className="mx-auto grid max-w-[1240px] items-center gap-10 lg:grid-cols-[1.65fr_.85fr] lg:gap-12">
+        <div className="grid items-center gap-8 sm:grid-cols-[1fr_.95fr] sm:gap-7">
           <div>
             <p className="text-xs font-extrabold uppercase tracking-[.15em] text-[#c74e20]">Custom printed flyers</p>
-            <h2 id="flyer-title" className="mt-3 text-[clamp(2.15rem,4vw,3.8rem)] font-extrabold leading-[1.08] tracking-[-.06em]">A great offer,<br /><span className="text-[#e95b27]">in their hands.</span></h2>
+            <h2 id="flyer-title" className="mt-3 text-[clamp(2rem,3vw,3rem)] font-extrabold leading-[1.12] tracking-[-.055em]">A great offer,<br /><span className="text-[#e95b27]">in their hands.</span></h2>
             <p className="mt-5 max-w-[440px] text-base leading-7 text-[#4b5e68]">Put your menu and special offers where your neighbors can see them. We take your flyer from design through printing, with production-level pricing and agency-quality creative work tailored to your business.</p>
             <p className="mt-4 text-sm font-bold text-[#ad4c27]">Your brand. Your neighborhood. A plan that fits your budget.</p>
             <div className="mt-6"><QuoteLink>Ask about printed flyers</QuoteLink></div>
