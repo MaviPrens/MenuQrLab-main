@@ -10,7 +10,7 @@ import type { ShowcaseConfig } from "@/lib/showcase";
 import type { HeroSceneConfig, HeroSceneKind } from "@/lib/hero-scenes";
 
 type Props = { wipes: ShowcaseConfig; magnets: ShowcaseConfig; scenes: Record<HeroSceneKind, HeroSceneConfig>; dbBacked: boolean };
-const contactEmail = "sales@nunowipes.com";
+const contactEmail = "sales@menuqrlab.com";
 const contactPhone = "+19546811177";
 
 const wipeNames = [

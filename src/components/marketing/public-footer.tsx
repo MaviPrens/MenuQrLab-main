@@ -21,7 +21,7 @@ export function PublicFooter() {
           <p className="mb-[22px] max-w-[26em] font-mql-body text-[.9rem] leading-[1.6] text-[#d3e1e9]">
             Custom products and practical marketing that help local restaurants stay remembered.
           </p>
-          <a href="mailto:sales@nunowipes.com" className="block break-all font-mql-body text-sm text-[#ffd8b5] underline-offset-4 hover:underline">sales@nunowipes.com</a>
+          <a href="mailto:sales@menuqrlab.com" className="block break-all font-mql-body text-sm text-[#ffd8b5] underline-offset-4 hover:underline">sales@menuqrlab.com</a>
           <a href="tel:+19546811177" className="mt-2 block font-mql-mono text-sm text-[#ffd8b5] underline-offset-4 hover:underline">(954) 681-1177</a>
           <a href="https://wa.me/19546811177" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block font-mql-body text-sm text-[#ffd8b5] underline-offset-4 hover:underline">Chat on WhatsApp ↗</a>
         </div>
