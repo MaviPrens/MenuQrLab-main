@@ -1,26 +1,23 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface BrandLogoProps {
-  /** 23px in the header, 21px in the footer. */
   size?: "header" | "footer";
   inverse?: boolean;
   className?: string;
 }
 
-/** Two-tone "Menu"/"QrLab" wordmark with a letterhead-style underline rule. */
 export function BrandLogo({ size = "header", inverse = false, className }: BrandLogoProps) {
   return (
-    <span className={cn("inline-flex flex-col items-start gap-[5px]", className)}>
-      <span
-        className={cn(
-          "font-mql-display leading-none font-bold tracking-[0.015em]",
-          inverse ? "text-white" : "text-mql-ink",
-          size === "header" ? "text-[23px]" : "text-[21px]",
-        )}
-      >
-        Menu<span className="text-mql-text-accent">QrLab</span>
-      </span>
-      <span className={cn("block h-px w-full", inverse ? "bg-white/30" : "bg-mql-hairline-strong")} />
+    <span className={cn("inline-flex shrink-0 items-center", inverse && "drop-shadow-[0_0_2px_rgba(255,255,255,0.35)]", className)}>
+      <Image
+        src="/images/brand/menuqrlab-logo-ribbon.webp"
+        alt="MenuQrLab — Production Prices. Agency-Quality Marketing."
+        width={1000}
+        height={500}
+        priority={size === "header"}
+        className={cn("block h-auto object-contain", size === "header" ? "w-[160px] sm:w-[186px]" : "w-[230px] sm:w-[260px]")}
+      />
     </span>
   );
 }

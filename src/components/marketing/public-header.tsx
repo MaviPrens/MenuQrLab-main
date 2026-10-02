@@ -17,7 +17,7 @@ export function PublicHeader() {
 
   return (
     <header className="sticky top-0 z-[60] border-b border-mql-hairline bg-white">
-      <div className="mx-auto flex h-[78px] w-full max-w-[1240px] items-center gap-10 px-8">
+      <div className="mx-auto flex h-[84px] w-full max-w-[1240px] items-center gap-4 px-5 sm:h-[100px] sm:px-8 lg:gap-10">
         <Link href={routes.marketing.home()} aria-label={`${appConfig.appName} — home`}>
           <BrandLogo />
         </Link>
